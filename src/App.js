@@ -15,7 +15,6 @@ function App() {
         <Header/>
           <Routes>
             <Route path='/' element={<HomePage/>} />
-            <Route path='/' element={<MovieDetailPage/>} />
           </Routes>
       </ContextReducer>
     </BrowserRouter>
