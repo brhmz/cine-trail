@@ -1,0 +1,97 @@
+.header-container {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.logo-container {
+    padding: 0px;
+}
+
+.logo {
+    font-family: Roboto,sans-serif;
+    color: red;
+    font-size: 24pt;
+    margin: 0 auto;
+}
+
+.search-container {
+    width: 40%;
+}
+
+.search-input {
+    width: 100%;
+    background-color: #050505;
+    height: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: text;
+    color: white;
+    font-size: 8pt;
+}
+
+.search-input:focus {
+    border-radius: 0;
+    outline: none;
+}
+
+.header-buttons-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.theme-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 2px 5px;
+    margin-right: 10px;
+    background-color: #050505;
+}
+
+.theme-button {
+    padding: 3px 5px 0px 5px;
+}
+
+.create-account {
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 15px;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        background-color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .search-container {
+        width: 100%;
+        margin-top: 8px;
+        order: 3;        
+    }
+
+    .logo {
+        margin: 0px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .create-account{
+        display: none;
+    }
+
+    .theme-buttons-container{
+        display: none;
+    }
+  }
