@@ -11,19 +11,19 @@ function Header() {
 
 
   return (
-    <div className={darkMode===true ? 'header-container header-container-dark' : 'header-container'}>
+    <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
       <div className='logo-container'>
-        <a href='/'>
-          <p className='logo'>CineTrail</p>
-        </a>
+        <Link className='logo' to='/'>
+          <p>CineTrail</p>
+        </Link>
       </div>
       <div className='search-container'>
-        <input className={darkMode===true ? 'search-input search-input-dark' : 'search-input'} placeholder='Search any movie'/>
+        <input className={darkMode ? 'search-input search-input-dark' : 'search-input'} placeholder='Search any movie'/>
       </div>
       <div className='header-buttons-container'>
         <div className='theme-buttons-container'>
-          <div className={darkMode===true ? 'theme-button-sun-dark' : 'theme-button-sun-light'}><BsSun onClick={()=>setDarkMode(false)} color='white'/></div>
-          <div className={darkMode===true ? 'theme-button-moon-dark' : 'theme-button-moon-light'}><BsFillMoonFill onClick={()=>setDarkMode(true)} color='white'/></div>
+          <div className={darkMode ? 'theme-button' : 'theme-button active-theme'}><BsSun onClick={()=>setDarkMode(false)} color='white'/></div>
+          <div className={darkMode ? 'theme-button active-theme' : 'theme-button'}><BsFillMoonFill onClick={()=>setDarkMode(true)} color='white'/></div>
         </div>
         <div>
           <button className='create-account'>Create Account</button>

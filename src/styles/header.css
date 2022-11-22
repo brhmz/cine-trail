@@ -21,6 +21,7 @@
     color: red;
     font-size: 24pt;
     margin: 0 auto;
+    text-decoration: none;
 }
 
 .search-container {
@@ -65,31 +66,13 @@
     background-color: #050505;
 }
 
-.theme-button-sun-light {
-    border-radius: 20px;
-    padding: 3px 5px 0px 5px;
-    cursor: pointer;
-    background-color: red;
-    zoom: 1.2;
-}
-
-.theme-button-moon-light {
+.theme-button {
     border-radius: 20px;
     padding: 3px 5px 0px 5px;
     cursor: pointer;
 }
 
-.theme-button-sun-dark {
-    border-radius: 20px;
-    padding: 3px 5px 0px 5px;
-    cursor: pointer;
-    margin: 0;
-}
-
-.theme-button-moon-dark {
-    border-radius: 20px;
-    padding: 3px 5px 0px 5px;
-    cursor: pointer;
+.active-theme {
     background-color: red;
     zoom: 1.2;
 }
@@ -119,6 +102,7 @@
 
     .logo {
         margin: 0px;
+        text-decoration: none;
     }
   }
 
