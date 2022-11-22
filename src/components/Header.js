@@ -9,6 +9,11 @@ function Header() {
 
   const {darkMode, setDarkMode} = useContext(ThemeContext)
 
+  const handleTheme=(theme)=>{
+    setDarkMode(theme)
+    localStorage.setItem('darkMode', theme)
+  }
+
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
@@ -22,8 +27,8 @@ function Header() {
       </div>
       <div className='header-buttons-container'>
         <div className='theme-buttons-container'>
-          <div className={darkMode ? 'theme-button' : 'theme-button active-theme'}><BsSun onClick={()=>setDarkMode(false)} color='white'/></div>
-          <div className={darkMode ? 'theme-button active-theme' : 'theme-button'}><BsFillMoonFill onClick={()=>setDarkMode(true)} color='white'/></div>
+          <div className={darkMode ? 'theme-button' : 'theme-button active-theme'}><BsSun onClick={()=>handleTheme(false)} color='white'/></div>
+          <div className={darkMode ? 'theme-button active-theme' : 'theme-button'}><BsFillMoonFill onClick={()=>handleTheme(true)} color='white'/></div>
         </div>
         <div>
           <button className='create-account'>Create Account</button>

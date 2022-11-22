@@ -1,6 +1,7 @@
 .home-page {
-    height: 100vh;
-    background-color: white;
+    min-height: 100vh;
+    background-color: var(--white);
+    margin-top: var(--header-height);
 }
 
 .home-page-dark {
