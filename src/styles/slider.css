@@ -22,6 +22,7 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
 .slider-info {
     bottom: 0;
     color: var(--white);
@@ -36,7 +37,6 @@ p {
     z-index: 1;
 }
 
-
 .right-arrow{
     color: var(--red);
     cursor: pointer;
@@ -46,6 +46,7 @@ p {
     z-index: 2;
     right: 0;
 }
+
 .left-arrow{
     color: var(--red);
     cursor: pointer;
@@ -59,9 +60,9 @@ p {
 .link {
     text-decoration: none;
     color: var(--white);
-  }
+}
 
 .link:hover {
     text-decoration: none;
     color: var(--red);
-  }
+}

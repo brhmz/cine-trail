@@ -2,13 +2,11 @@ import React, { useContext } from 'react';
 import Slider from '../components/Slider';
 import { ThemeContext } from '../contexts/ThemeContext';
 import '../styles/homepage.css'
-import axios from 'axios';
 
 
 function HomePage() {
 
   const {darkMode, setDarkMode} = useContext(ThemeContext)
-
 
 
   return (
