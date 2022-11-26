@@ -33,11 +33,10 @@ const previous = () => { i>0 && i<=(upComingMovies.length-1) ? setI(i-1) : setI(
     <MdOutlineKeyboardArrowLeft className='left-arrow' onClick={()=>previous()}/>
     <div className='slider-info'>
       <h1>{upComingMovies[i]?.title}</h1>
-      <p>{upComingMovies[i]?.overview.length > 130 ? `${upComingMovies[i]?.overview.substring(0, 130)}...` : upComingMovies[i]?.overview
-  }</p>
-  <p>Release Date: {upComingMovies[i]?.release_date}</p>
-  <div className='stars-container'></div>
-  <Link to={'/'} className='link'>See Details</Link>
+      <p>{upComingMovies[i]?.overview.length > 130 ? `${upComingMovies[i]?.overview.substring(0, 130)}...` : upComingMovies[i]?.overview}</p>
+      <p>Release Date: {upComingMovies[i]?.release_date}</p>
+      <div className='stars-container'></div>
+      <Link to={'/'} className='link'>See Details</Link>
 
 
     </div>
