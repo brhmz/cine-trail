@@ -6,7 +6,7 @@ import '../styles/homepage.css'
 
 function HomePage() {
 
-  const {darkMode, setDarkMode} = useContext(ThemeContext)
+  const {darkMode} = useContext(ThemeContext)
 
 
   return (

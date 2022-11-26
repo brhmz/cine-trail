@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Slider from './Slider';
 
 function Genres({currentMovie}) {
 
@@ -14,9 +13,6 @@ function Genres({currentMovie}) {
       }, [])
 
     const currentGenreNames = []
-
-    console.log(currentMovie?.genre_ids)
-
     
     function genreNamesFinder() {
         for(let i=0; i<genres?.length; i++) {
@@ -27,15 +23,12 @@ function Genres({currentMovie}) {
             }
         } 
     }
-    console.log(currentGenreNames)
     
     genreNamesFinder();
-    const currentGenreList = currentGenreNames.map((item)=>
-    <p>{item}, &nbsp;</p>
+    const currentGenreList = currentGenreNames.map((item, index)=>
+    <p key={index}>{item}, &nbsp;</p>
     );
     
-    console.log(currentGenreList)
-
   return (
     <div className='genres-container'>
         <p>Genres:&nbsp;</p> 
