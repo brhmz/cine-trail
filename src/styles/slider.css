@@ -1,3 +1,35 @@
-.slider-image {
+.slider-component {
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 0;
+}
+
+.slider-overlay {
+    background: #000;
+    background: linear-gradient(90deg,#000,hsla(0,0%,100%,0));
+    height: 100%;
+    position: absolute;
     width: 100%;
+}
+
+.right-arrow{
+    color: var(--red);
+    cursor: pointer;
+    font-size: 4rem;
+    position: absolute;
+    top: 45%;
+    z-index: 2;
+    right: 0;
+}
+.left-arrow{
+    color: var(--red);
+    cursor: pointer;
+    font-size: 4rem;
+    position: absolute;
+    top: 45%;
+    z-index: 2;
+    left: 0;
 }
