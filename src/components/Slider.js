@@ -12,42 +12,40 @@ import RatingStars from './RatingStars';
 function Slider() {
 
   const [upComingMovies, setUpComingMovies] = useState([])
-  const [i, setI] = useState(0)
+  const [index, setIndex] = useState(0)
+  const apiKey = process.env.REACT_APP_API_KEY
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
 
   useEffect(() => {
-    axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4fb47f1613fc6ff82ac98a531050f625')
+    axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`)
       .then(response => setUpComingMovies(response.data.results))
       .catch(err => console.log(err))
   }, [])
 
-  const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
-
-  const next = () => { i < (upComingMovies.length - 1) && i >= 0 ? setI(i + 1) : setI(0) }
-  const previous = () => { i > 0 && i <= (upComingMovies.length - 1) ? setI(i - 1) : setI(upComingMovies.length - 1) }
+  const next = () => { index < (upComingMovies.length - 1) && index >= 0 ? setIndex(index + 1) : setIndex(0) }
+  const previous = () => { index > 0 && index <= (upComingMovies.length - 1) ? setIndex(index - 1) : setIndex(upComingMovies.length - 1) }
 
   return (
-    <div className='slider-component' style={{ backgroundImage: `url(${imageBaseUrl + upComingMovies[i]?.backdrop_path})` }}>
+    <div className='slider-component' style={{ backgroundImage: `url(${imageBaseUrl + upComingMovies[index]?.backdrop_path})` }}>
       <div className='slider-overlay'></div>
       <MdOutlineKeyboardArrowRight className='right-arrow' onClick={() => next()} />
       <MdOutlineKeyboardArrowLeft className='left-arrow' onClick={() => previous()} />
       <div className='slider-info'>
-        <h1>{upComingMovies[i]?.title}</h1>
-        <p>{upComingMovies[i]?.overview.length > 130 ? `${upComingMovies[i]?.overview.substring(0, 130)}...` : upComingMovies[i]?.overview}</p>
+        <h1>{upComingMovies[index]?.title}</h1>
+        <p>{upComingMovies[index]?.overview.length > 130 ? `${upComingMovies[index]?.overview.substring(0, 130)}...` : upComingMovies[index]?.overview}</p>
         <div className='genres-container'>
           <Genres
-            currentMovie={upComingMovies[i]}
+            currentMovie={upComingMovies[index]}
           />
         </div>
-        <p>Release Date: {upComingMovies[i]?.release_date}</p>
+        <p>Release Date: {upComingMovies[index]?.release_date}</p>
         <div className='stars-container'></div>
         <div>
           <RatingStars
-            currentRating={upComingMovies[i]?.vote_average}
+            currentRating={upComingMovies[index]?.vote_average}
           />
         </div>
         <Link to={'/'} className='link'>See Details</Link>
-
-
       </div>
     </div>
   )

@@ -5,9 +5,10 @@ import axios from 'axios';
 function Genres({currentMovie}) {
 
     const [genres, setGenres] = useState([])
+    const apiKey = process.env.REACT_APP_API_KEY
 
     useEffect(() => {
-        axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=4fb47f1613fc6ff82ac98a531050f625')
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`)
           .then(response => setGenres(response.data.genres))
           .catch(err => console.log(err))
       }, [])
@@ -26,7 +27,7 @@ function Genres({currentMovie}) {
     
     genreNamesFinder();
     const currentGenreList = currentGenreNames.map((item, index)=>
-    <p key={index}>{item}, &nbsp;</p>
+    <p key={index}>{index === currentGenreNames.length-1 ? item : `${item},`}&nbsp;</p>
     );
     
   return (
