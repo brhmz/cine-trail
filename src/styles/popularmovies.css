@@ -1,0 +1,8 @@
+.popular-movies-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popular-movies-container-dark {
+    color: var(--white);
+}

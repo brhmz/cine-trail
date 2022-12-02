@@ -1,0 +1,8 @@
+.top-rated-movies-container  {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-rated-movies-container-dark  {
+    color: var(--white);
+}

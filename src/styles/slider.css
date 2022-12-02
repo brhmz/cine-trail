@@ -78,3 +78,15 @@ p {
 .rating-stars {
  
 }
+
+@media (max-width: 768px) {
+    .slider-info {
+        width: 70%;
+    }
+}
+
+@media (max-width: 468px) {
+    .slider-info > p {
+        display: none;
+    }
+}
