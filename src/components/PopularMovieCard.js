@@ -1,13 +1,11 @@
 import React from 'react';
-import {useEffect, useState} from 'react';
-import axios from 'axios';
 import RatingStars from './RatingStars';
 
 
-function PopularMovieCard() {
-    
-    
+function PopularMovieCard({movie}) {
 
+
+    
 
 
   return (
