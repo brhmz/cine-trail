@@ -1,3 +1,16 @@
 .popular-movie-card {
+    width: 200px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: rgb(118 118 118 / 75%) 0px 0px 10px 0px;
+    color: var(--white);
+}
+
+.popular-movie-info {
+    text-align: center;
     
 }

@@ -22,7 +22,7 @@ function PopularMovies() {
 
   return (
     <div className={darkMode===true ? 'popular-movies-container popular-movies-container-dark' : 'popular-movies-container'}> 
-      <h3>title</h3>
+      <h3>Popular Movies</h3>
       <div className='movie-cards-container'>
       {
           popularMovies.map((item, index)=>{

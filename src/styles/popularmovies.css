@@ -1,7 +1,18 @@
-.popular-movies-container {
+.movie-cards-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 1.2em;
 }
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.popular-movies-container {
+    flex-basis: 80%;
+}
+
 
 .popular-movies-container-dark {
     color: var(--white);

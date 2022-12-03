@@ -9,7 +9,7 @@ function TopRatedMovies() {
 
   return (
     <div className={darkMode===true ? 'top-rated-movies-container top-rated-movies-container-dark' : 'top-rated-movies-container'}>
-      <h3>top rated title</h3>
+      <h3>Top Rated Movies</h3>
       <div className='top-rated-movie-cards-container'>
         <div>
 

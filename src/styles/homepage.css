@@ -10,8 +10,8 @@
 
 .home-page-body {
     display: flex;
-    flex-wrap: wrap;
     background-color: var(--white);
+    padding: 15px 25px;
 }
 
 .home-page-body-dark {

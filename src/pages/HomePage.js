@@ -16,10 +16,8 @@ function HomePage() {
        <Slider /> 
       </div>
       <div className={darkMode===true ? 'home-page-body home-page-body-dark' : 'home-page-body'}>
-        <div className='popular-movies-container'>
           <PopularMovies /> 
           <TopRatedMovies />
-        </div>
       </div>
       
     </div>
