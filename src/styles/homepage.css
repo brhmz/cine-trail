@@ -12,8 +12,15 @@
     display: flex;
     background-color: var(--white);
     padding: 15px 25px;
+    justify-content: space-between;
 }
 
 .home-page-body-dark {
     background-color: rgb(27, 27, 27);
+}
+
+@media (max-width:1018px) {
+    .home-page-body {
+        flex-wrap: wrap;
+    }
 }

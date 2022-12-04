@@ -8,9 +8,35 @@
     border-radius: 16px;
     box-shadow: rgb(118 118 118 / 75%) 0px 0px 10px 0px;
     color: var(--white);
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.popular-movie-info {
+.polular-movie-card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 300px;
+    opacity:0;
+    position: absolute;
+    z-index: 1;
+}:hover {
+    opacity:1;
+    -webkit-transition: opacity .25s ease-in-out .0s;
+    transition: opacity .95s ease-in-out .0s;
+}
+
+/* .polular-movie-card-info:hover + .polular-movie-card-info{
+    visibility:visible;
+} */
+
+.popular-movie-detail {
+    padding-top: 2px;
+    background-color: var(--transparent-bg);
     text-align: center;
-    
+}
+
+.popular-movie-rating {
+    margin: 5px 0 0 10px;
 }

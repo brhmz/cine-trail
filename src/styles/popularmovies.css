@@ -10,10 +10,30 @@ h3 {
 }
 
 .popular-movies-container {
-    flex-basis: 80%;
+    max-width: 80%;
 }
 
 
 .popular-movies-container-dark {
     color: var(--white);
+}
+
+.page-numbers {
+    display: flex;
+    justify-content: space-around;
+    margin: 18px auto;
+    cursor: pointer;
+}
+
+.page-numbers p.active {
+    text-decoration: underline;
+}
+
+@media (max-width:1018px) {
+.popular-movies-container {
+    max-width: 100%;
+}
+.movie-cards-container {
+    justify-content: center;
+}
 }
