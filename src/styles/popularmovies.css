@@ -1,6 +1,8 @@
 .movie-cards-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     gap: 1.2em;
 }
 
@@ -21,11 +23,12 @@ h3 {
 .page-numbers {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin: 18px auto;
     cursor: pointer;
 }
 
-.page-numbers p.active {
+.page-numbers a:active{
     text-decoration: underline;
 }
 
