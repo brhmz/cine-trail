@@ -12,16 +12,13 @@ function PopularMovies() {
     
   const [popularMovies, setPopularMovies] = useState([])
   const [pageNumber, setPageNumber] = useState('1')
+  const pageNumbers = [1,2,3,4,5,6,7,8,9,10]
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${pageNumber}`)
       .then(response=>setPopularMovies(response.data.results))
       .catch(err => console.log(err))
    }, [pageNumber])
-
-// const pageNumberChange = () => {
-//   var currentPage = getElementById()
-// }     0
 
   return (
     <div className={darkMode===true ? 'popular-movies-container popular-movies-container-dark' : 'popular-movies-container'}> 
@@ -35,16 +32,9 @@ function PopularMovies() {
       </div>
       <div className='page-numbers'>
         <p>Select Page</p>
-        <a onClick={()=>setPageNumber('1')}>1</a>
-        <a onClick={()=>setPageNumber('2')}>2</a>
-        <a onClick={()=>setPageNumber('3')}>3</a>
-        <a onClick={()=>setPageNumber('4')}>4</a>
-        <a onClick={()=>setPageNumber('5')}>5</a>
-        <a onClick={()=>setPageNumber('6')}>6</a>
-        <a onClick={()=>setPageNumber('7')}>7</a>
-        <a onClick={()=>setPageNumber('8')}>8</a>
-        <a onClick={()=>setPageNumber('9')}>9</a>
-        <a onClick={()=>setPageNumber('10')}>10</a>
+        {pageNumbers.map((item)=>
+        <a onClick={()=>setPageNumber(item)}>{item}</a>)
+        }
       </div>
     </div>
   )
