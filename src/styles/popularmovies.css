@@ -20,7 +20,7 @@ h3 {
     color: var(--white);
 }
 
-.page-numbers {
+.page-numbers-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -28,8 +28,8 @@ h3 {
     cursor: pointer;
 }
 
-.page-numbers a:active{
-    text-decoration: underline;
+.current-page {
+    border-bottom: 1px solid;
 }
 
 @media (max-width:1018px) {

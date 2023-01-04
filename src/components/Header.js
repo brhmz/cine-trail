@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import axios from 'axios';
 import {Link} from 'react-router-dom'
 import  '../styles/header.css'
 import { BsSun } from 'react-icons/bs';
@@ -8,12 +9,21 @@ import { ThemeContext } from '../contexts/ThemeContext';
 function Header() {
 
   const {darkMode, setDarkMode} = useContext(ThemeContext)
+  const apiKey = process.env.REACT_APP_API_KEY
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   const handleTheme=(theme)=>{
     setDarkMode(theme)
     localStorage.setItem('darkMode', theme)
   }
 
+  // const handleFilter = (e) => {
+  //   axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${input}&page=1`)
+  //     .then(response => setFilteredMovies(response.results.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()))))
+  //     .catch(err => console.log(err))
+  // }
+
+  console.log(filteredMovies)
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
