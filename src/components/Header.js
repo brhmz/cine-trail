@@ -4,7 +4,7 @@ import  '../styles/header.css'
 import { BsSun } from 'react-icons/bs';
 import { BsFillMoonFill } from 'react-icons/bs';
 import { ThemeContext } from '../contexts/ThemeContext';
-import FilteredMovies from './FilteredMovies';
+import FilteredMovieCard from './FilteredMovies';
 import axios from 'axios';
 
 function Header() {
@@ -12,6 +12,7 @@ function Header() {
   const {darkMode, setDarkMode} = useContext(ThemeContext)
   const apiKey = process.env.REACT_APP_API_KEY
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
 
   const handleTheme=(theme)=>{
@@ -19,13 +20,13 @@ function Header() {
     localStorage.setItem('darkMode', theme)
   }
 
-  const handleFilter = (e) => {
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${e.target.value.toLowerCase()}&page=1&include_adult=false`)
-      .then(response => setFilteredMovies(response.results))
-      .catch(err => console.log(err))
-  }
+  // const handleFilter = (e) => {
+  //   axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchInput}&page=1&include_adult=false`)
+  //     .then(response => setFilteredMovies(response.results))
+  //     .catch(err => console.log(err))
+  // }
 
-  console.log(filteredMovies)
+  // console.log(searchInput)
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
@@ -35,10 +36,18 @@ function Header() {
         </Link>
       </div>
       <div className='search-container'>
-        <input onChange={handleFilter} className={darkMode ? 'search-input search-input-dark' : 'search-input'} placeholder='Search any movie'/>
+        {/* <input value={searchInput} onChange={()=>{handleFilter(), setSearchInput(searchInput)}} className={darkMode ? 'search-input search-input-dark' : 'search-input'} pla */}
+        ceholder='Search any movie'/>
       </div>
       <div>
-        <FilteredMovies/>
+      {
+        filteredMovies.map((item, index) => {
+          return <FilteredMovieCard
+            country={item}
+            key={index}
+          />
+        })
+      }
       </div>
       <div className='header-buttons-container'>
         <div className='theme-buttons-container'>
