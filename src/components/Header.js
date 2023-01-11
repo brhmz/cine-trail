@@ -12,21 +12,25 @@ function Header() {
   const {darkMode, setDarkMode} = useContext(ThemeContext)
   const apiKey = process.env.REACT_APP_API_KEY
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
 
 
-  const handleTheme=(theme)=>{
+
+  const handleTheme = (theme) => {
     setDarkMode(theme)
     localStorage.setItem('darkMode', theme)
   }
 
-  // const handleFilter = (e) => {
-  //   axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchInput}&page=1&include_adult=false`)
-  //     .then(response => setFilteredMovies(response.results))
-  //     .catch(err => console.log(err))
-  // }
+  const handleFilter = (e) => {
+    const inputValue = e.target.value;
+    console.log(inputValue)
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${inputValue}&page=1&include_adult=false`)
+      .then(response => setFilteredMovies(response.results))
+      .catch(err => console.log(err))
+  }
 
-  // console.log(searchInput)
+  
+
+  console.log(filteredMovies)
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
@@ -36,8 +40,7 @@ function Header() {
         </Link>
       </div>
       <div className='search-container'>
-        {/* <input value={searchInput} onChange={()=>{handleFilter(), setSearchInput(searchInput)}} className={darkMode ? 'search-input search-input-dark' : 'search-input'} pla */}
-        ceholder='Search any movie'/>
+        <input id="search-input" onChange={()=>{handleFilter()}} className={darkMode ? 'search-input search-input-dark' : 'search-input'} placeholder='Search any movie'/>
       </div>
       <div>
       {
