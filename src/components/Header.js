@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/header.css'
+import "../styles/filteredmovies.css"
 import { BsSun } from 'react-icons/bs';
 import { BsFillMoonFill } from 'react-icons/bs';
 import { ThemeContext } from '../contexts/ThemeContext';
-import FilteredMovieCard from './FilteredMovies';
+import FilteredMovieCard from './FilteredMovieCard';
 import axios from 'axios';
 
 function Header() {
@@ -49,7 +50,7 @@ function Header() {
         className={darkMode ? 'search-input search-input-dark' : 'search-input'} 
         placeholder='Search any movie' />
       </div>
-      <div>
+      <div className='filtered-movie-cards-container'>
         {
           filteredMovies.map((item, index) => {
             return <FilteredMovieCard

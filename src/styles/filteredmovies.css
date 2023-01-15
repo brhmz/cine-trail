@@ -1,0 +1,26 @@
+.filtered-movie-card {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+
+}
+
+.filtered-movie-cards-container {
+    position:fixed ;
+    width: 40%;
+    top: var(--header-height);
+    left: 27%;
+
+}
+
+.filtered-movie-image {
+    width: 150px;
+    padding: 5px 0;
+}
+
+.filtered-movie-title {
+    padding-right: 15px;
+}
