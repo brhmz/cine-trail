@@ -50,7 +50,7 @@ function Header() {
         className={darkMode ? 'search-input search-input-dark' : 'search-input'} 
         placeholder='Search any movie' />
       </div>
-      <div className='filtered-movie-cards-container'>
+      <div className={query.length == 0 ? 'no-search' : 'filtered-movie-cards-container'}>
         {
           filteredMovies.map((item, index) => {
             return <FilteredMovieCard

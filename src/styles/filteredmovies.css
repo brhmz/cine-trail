@@ -1,3 +1,7 @@
+.no-search {
+    display: none;
+}
+
 .filtered-movie-card {
     background-color: black;
     color: white;
