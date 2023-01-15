@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/header.css'
 import { BsSun } from 'react-icons/bs';
@@ -22,11 +22,14 @@ function Header() {
     localStorage.setItem('darkMode', theme)
   }
 
-  useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
-      .then(response => setFilteredMovies(response.results))
-      .catch(err => console.log(err))
-  }, [query])
+  const handleSearch = (query) => {
+          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
+      .then(response => setFilteredMovies(response.data.results))
+      .catch(err => alert('That movie does not exist. Try again'))
+  }
+
+  console.log(query)
+  console.log(filteredMovies)
 
 
   return (
@@ -39,7 +42,10 @@ function Header() {
       <div className='search-container'>
         <input id="search-input" 
         type="text"
-        onChange={(e) => setQuery(e.target.value)} 
+        onChange={(e) => {
+          setQuery(e.target.value) 
+          handleSearch()
+        }} 
         className={darkMode ? 'search-input search-input-dark' : 'search-input'} 
         placeholder='Search any movie' />
       </div>
