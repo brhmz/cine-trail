@@ -22,10 +22,10 @@ function Header() {
     localStorage.setItem('darkMode', theme)
   }
 
-  const handleSearch = (query) => {
-          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
+  const handleSearch = () => {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
       .then(response => setFilteredMovies(response.data.results))
-      .catch(err => alert('That movie does not exist. Try again'))
+      .catch(err => console.log(err))
   }
 
   console.log(query)
@@ -53,7 +53,7 @@ function Header() {
         {
           filteredMovies.map((item, index) => {
             return <FilteredMovieCard
-              country={item}
+              movie={item}
               key={index}
             />
           })

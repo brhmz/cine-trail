@@ -3,13 +3,13 @@ import axios from 'axios'
 
 
 
-function FilteredMovies() {
+function FilteredMovies({movie}) {
 
 
 
   return (
     <div>
-
+      {movie.title}
     </div>
   )
 }
