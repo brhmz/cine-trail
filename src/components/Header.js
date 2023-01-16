@@ -16,8 +16,6 @@ function Header() {
   const [query, setQuery] = useState("");
 
 
-
-
   const handleTheme = (theme) => {
     setDarkMode(theme)
     localStorage.setItem('darkMode', theme)
@@ -28,9 +26,6 @@ function Header() {
       .then(response => setFilteredMovies(response.data.results))
       .catch(err => console.log(err))
   }
-
-  console.log(query)
-  console.log(filteredMovies)
 
 
   return (

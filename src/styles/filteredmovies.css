@@ -14,9 +14,12 @@
 
 .filtered-movie-cards-container {
     position:fixed ;
+    overflow: scroll;
     width: 40%;
+    height: 300px;
     top: var(--header-height);
     left: 27%;
+    
 
 }
 

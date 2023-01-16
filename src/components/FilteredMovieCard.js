@@ -8,8 +8,8 @@ function FilteredMovieCard({movie}) {
 
   return (
     <div className='filtered-movie-card'>
-      <img className='filtered-movie-image' src={imageBaseUrl+movie.backdrop_path}/>
-      <p className='filtered-movie-title'>{movie.title}</p>
+      <img className='filtered-movie-image' src={imageBaseUrl+movie?.backdrop_path}/>
+      <p className='filtered-movie-title'>{movie?.title}</p>
     </div>
   )
 }
