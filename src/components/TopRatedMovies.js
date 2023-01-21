@@ -12,7 +12,7 @@ function TopRatedMovies() {
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=1`)
-      .then(response=>setTopRatedMovies(response.data.results))
+      .then(response=>setTopRatedMovies(response.data.results.slice(0,10)))
       .catch(err=>console.log(err))
    }, [])
 

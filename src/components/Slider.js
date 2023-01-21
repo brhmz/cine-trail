@@ -45,7 +45,7 @@ function Slider() {
             currentRating={upComingMovies[index]?.vote_average}
           />
         </div>
-        <Link to={'/'} className='link'>See Details</Link>
+        <Link to={`/${upComingMovies[index]?.id}`} className='link'>See Details</Link>
       </div>
     </div>
   )

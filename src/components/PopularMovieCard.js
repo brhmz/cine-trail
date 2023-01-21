@@ -1,16 +1,20 @@
 import React from 'react';
 import RatingStars from './RatingStars';
 import '../styles/popularmoviescard.css'
+import { useNavigate } from 'react-router';
+
 
 
 function PopularMovieCard({popularMovie}) {
+
+  let navigate = useNavigate()
 
   const apiKey = process.env.REACT_APP_API_KEY
   const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
 
 
   return (
-    <div className='popular-movie-card' style={{ backgroundImage: `url(${imageBaseUrl + popularMovie?.poster_path})` }}>
+    <div onClick={() => navigate(`/${popularMovie.id}`)} className='popular-movie-card' style={{ backgroundImage: `url(${imageBaseUrl + popularMovie?.poster_path})` }}>
         <div className='polular-movie-card-info'>
           <div className='popular-movie-rating'>
             <RatingStars

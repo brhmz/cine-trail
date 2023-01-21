@@ -11,7 +11,7 @@ function PopularMovies() {
   const { darkMode } = useContext(ThemeContext)
 
   const [popularMovies, setPopularMovies] = useState([])
-  const [pageNumber, setPageNumber] = useState('1')
+  const [pageNumber, setPageNumber] = useState(1)
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function PopularMovies() {
       <div className='page-numbers-container'>
         <p>Select Page</p>
         {pageNumbers.map((item, index) => {
-          return <a className={item === pageNumber ? 'current-page page-numbers' : 'page-numbers'} key={index} onClick={() => setPageNumber(item)}>{item}</a>
+          return <p className={item === pageNumber ? 'current-page page-numbers' : 'page-numbers'} key={index} onClick={() => setPageNumber(item)}>{item}</p>
         })}
       </div>
     </div>
