@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/header.css'
 import "../styles/filteredmovies.css"
@@ -21,12 +21,12 @@ function Header() {
     localStorage.setItem('darkMode', theme)
   }
 
-  const handleSearch = () => {
+  useEffect(() => {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
       .then(response => setFilteredMovies(response.data.results))
       .catch(err => console.log(err))
-  }
-
+  }, [query])
+  
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
@@ -40,7 +40,6 @@ function Header() {
         type="text"
         onChange={(e) => {
           setQuery(e.target.value) 
-          handleSearch()
         }} 
         className={darkMode ? 'search-input search-input-dark' : 'search-input'} 
         placeholder='Search any movie' />
