@@ -16,7 +16,7 @@ function Genres({currentMovie}) {
     const currentGenreNames = []
     
     function genreNamesFinder() {
-        if(!currentMovie?.genres && currentMovie?.genre_ids){
+        if(currentMovie?.genre_ids){
             for(let i=0; i<allGenres?.length; i++) {
                 for(let j=0; j<currentMovie?.genre_ids.length; j++){
                     if(allGenres[i]?.id === currentMovie?.genre_ids[j]){
@@ -24,7 +24,7 @@ function Genres({currentMovie}) {
                     }
                 }
             }
-        } else if (currentMovie?.genres && !currentMovie?.genre_ids) {
+        } else if (currentMovie?.genres) {
             for(let i=0; i<allGenres?.length; i++) {
                 for(let j=0; j<currentMovie?.genres.length; j++){
                     if(allGenres[i]?.id === currentMovie?.genres[j]){
@@ -41,6 +41,8 @@ function Genres({currentMovie}) {
     <p key={index}>{index === currentGenreNames.length-1 ? item : `${item},`}&nbsp;</p>
     );
     
+    console.log(currentMovie);
+
   return (
     <div className='genres-container'>
         <p>Genres:&nbsp;</p> 
