@@ -27,7 +27,7 @@ function Genres({currentMovie}) {
         } else if (currentMovie?.genres) {
             for(let i=0; i<allGenres?.length; i++) {
                 for(let j=0; j<currentMovie?.genres.length; j++){
-                    if(allGenres[i]?.id === currentMovie?.genres[j]){
+                    if(allGenres[i]?.id === currentMovie?.genres[j].id){
                         currentGenreNames.push(allGenres[i]?.name)
                     }
                 }
