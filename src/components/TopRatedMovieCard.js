@@ -12,8 +12,8 @@ function TopRatedMovieCard({topRatedMovie}) {
  
 
   return (
-    <div onClick={() => navigate(`/${topRatedMovie.id}`)} className='top-rated-movie-card'>
-      <img src={imageBaseUrl+topRatedMovie.backdrop_path}/>
+    <div onClick={() => navigate(`/moviedetails/${topRatedMovie.id}`)} className='top-rated-movie-card'>
+      <img className='movie-detail-image' src={imageBaseUrl+topRatedMovie.backdrop_path}/>
       <p>{topRatedMovie.title}</p>
     </div>
   )

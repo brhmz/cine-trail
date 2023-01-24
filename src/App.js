@@ -17,7 +17,7 @@ function App() {
         <Header/>
           <Routes>
             <Route path='/' element={<HomePage/>} />
-            <Route path='/:movieId' element={<MovieDetailPage/>} />
+            <Route path='/moviedetails/:movieId' element={<MovieDetailPage/>} />
           </Routes>
       </ContextReducer>
     </BrowserRouter>

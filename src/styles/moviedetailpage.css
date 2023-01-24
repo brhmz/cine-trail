@@ -1,4 +1,54 @@
 .movie-detail-page-container {
     margin-top: var(--header-height);
     color: white;
+    min-height: 100vh;
+}
+
+.trailer-container {
+    position: relative;
+    height: 100vh;
+
+}
+
+.movie-rating {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+
+.is-favorite-false {
+    cursor: pointer;
+    color: red;
+    font-style: italic;
+}
+
+.is-favorite-true {
+    cursor: pointer;
+    color: green;
+    font-style: italic;
+}
+
+
+.movie-details-container {
+    margin: 20px 25px;
+}
+
+.movie-details {
+    display: flex;
+}
+
+.movie-detail-image {
+    height: 300px;
+    border-radius: 10px;
+}
+
+.movie-info {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-info h4{
+   
 }

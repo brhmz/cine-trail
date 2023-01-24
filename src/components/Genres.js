@@ -4,25 +4,36 @@ import axios from 'axios';
 
 function Genres({currentMovie}) {
 
-    const [genres, setGenres] = useState([])
+    const [allGenres, setAllGenres] = useState([])
     const apiKey = process.env.REACT_APP_API_KEY
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`)
-          .then(response => setGenres(response.data.genres))
+          .then(response => setAllGenres(response.data.genres))
           .catch(err => console.log(err))
       }, [])
 
     const currentGenreNames = []
     
     function genreNamesFinder() {
-        for(let i=0; i<genres?.length; i++) {
-            for(let j=0; j<currentMovie?.genre_ids.length; j++){
-                if(genres[i]?.id === currentMovie?.genre_ids[j]){
-                    currentGenreNames.push(genres[i]?.name)
+        if(!currentMovie?.genres && currentMovie?.genre_ids){
+            for(let i=0; i<allGenres?.length; i++) {
+                for(let j=0; j<currentMovie?.genre_ids.length; j++){
+                    if(allGenres[i]?.id === currentMovie?.genre_ids[j]){
+                        currentGenreNames.push(allGenres[i]?.name)
+                    }
                 }
             }
-        } 
+        } else if (currentMovie?.genres && !currentMovie?.genre_ids) {
+            for(let i=0; i<allGenres?.length; i++) {
+                for(let j=0; j<currentMovie?.genres.length; j++){
+                    if(allGenres[i]?.id === currentMovie?.genres[j]){
+                        currentGenreNames.push(allGenres[i]?.name)
+                    }
+                }
+            }
+        }
+         
     }
     
     genreNamesFinder();

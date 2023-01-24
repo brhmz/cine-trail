@@ -14,7 +14,7 @@ function PopularMovieCard({popularMovie}) {
 
 
   return (
-    <div onClick={() => navigate(`/${popularMovie.id}`)} className='popular-movie-card' style={{ backgroundImage: `url(${imageBaseUrl + popularMovie?.poster_path})` }}>
+    <div onClick={() => navigate(`/moviedetails/${popularMovie.id}`)} className='popular-movie-card' style={{ backgroundImage: `url(${imageBaseUrl + popularMovie?.poster_path})` }}>
         <div className='polular-movie-card-info'>
           <div className='popular-movie-rating'>
             <RatingStars
