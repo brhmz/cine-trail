@@ -9,12 +9,12 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid grey;
-
+    cursor: pointer;
 }
 
 .filtered-movie-cards-container {
     position:fixed ;
-    overflow: scroll;
+    overflow: hidden;
     width: 40%;
     height: 300px;
     top: var(--header-height);

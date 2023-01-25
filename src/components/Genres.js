@@ -25,13 +25,10 @@ function Genres({currentMovie}) {
                 }
             }
         } else if (currentMovie?.genres) {
-            for(let i=0; i<allGenres?.length; i++) {
                 for(let j=0; j<currentMovie?.genres.length; j++){
-                    if(allGenres[i]?.id === currentMovie?.genres[j].id){
-                        currentGenreNames.push(allGenres[i]?.name)
+                        currentGenreNames.push(currentMovie?.genres[j].name)
                     }
-                }
-            }
+                
         }
          
     }
@@ -40,8 +37,6 @@ function Genres({currentMovie}) {
     const currentGenreList = currentGenreNames.map((item, index)=>
     <p key={index}>{index === currentGenreNames.length-1 ? item : `${item},`}&nbsp;</p>
     );
-    
-    console.log(currentMovie);
 
   return (
     <div className='genres-container'>

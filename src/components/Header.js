@@ -15,7 +15,6 @@ function Header() {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [query, setQuery] = useState("");
 
-
   const handleTheme = (theme) => {
     setDarkMode(theme)
     localStorage.setItem('darkMode', theme)

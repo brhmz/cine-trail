@@ -6,6 +6,7 @@ import '../styles/moviedetailpage.css'
 import ReactPlayer from 'react-player'
 import RatingStars from '../components/RatingStars';
 import Genres from '../components/Genres';
+import Review from '../components/Review';
 
 
 
@@ -18,25 +19,27 @@ function MovieDetailPage() {
   const [selectedMovie, setSelectedMovie] = useState(null)
   const [trailerUrl, setTrailerUrl] = useState(null)
   const [isFavorite, setFavorite] = useState(false)
+  const [reviews, setReviews] = useState([])
   const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
   const videoBaseUrl = "https://www.youtube.com/watch?v="
 
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`)
-      .then(response=>setTrailerUrl(response.data.results.find((item) => (item.type) = "Trailer")))
+      .then(response=>setTrailerUrl(response.data.results.find((item) => (item.type) === "Trailer")))
       .catch(err=>console.log(err))
-   }, [movieId])
 
-  useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
+      axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
       .then(response=>setSelectedMovie(response.data))
       .catch(err=>console.log(err))
+
+      axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}&language=en-US`)
+      .then(response=>setReviews(response.data.results))
+      .catch(err=>console.log(err))
    }, [movieId])
 
-
   return (
-    <div className='movie-detail-page-container'>
+    <div className={darkMode===true ? 'movie-detail-page-container movie-detail-page-container-dark' : 'movie-detail-page-container'}>
       <div className='trailer-container'>
         <ReactPlayer
             className='react-player'
@@ -53,7 +56,7 @@ function MovieDetailPage() {
         <RatingStars
             currentRating={selectedMovie?.vote_average}
         />
-        <p className={isFavorite == false ? "is-favorite-false" : "is-favorite-true"} onClick={()=>setFavorite(!isFavorite)}>{isFavorite == false ? "Add to favorites." : "Remove from favorties."}</p>
+        <p className={isFavorite === false ? "is-favorite-false" : "is-favorite-true"} onClick={()=>setFavorite(!isFavorite)}>{isFavorite === false ? "Add to favorites." : "Remove from favorties."}</p>
       </div>
       <div className='movie-details'>
           <img className="movie-detail-image" src={imageBaseUrl + selectedMovie?.poster_path} alt="" />
@@ -70,8 +73,19 @@ function MovieDetailPage() {
           </h4>
         </div>
       </div>
+      <div>
+        <h2>Reviews</h2>
+        <hr />
+        <div className="reviews">
+        {
+          reviews?.map((item, index) => {
+            return <Review review={item} key={index} />
+          })
+        }
+        </div>  
+        <hr />
+      </div>
     </div>
-      
     </div>
   )
 }

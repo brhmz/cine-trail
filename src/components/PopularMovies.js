@@ -25,7 +25,7 @@ function PopularMovies() {
       <h3>Popular Movies</h3>
       <div className='movie-cards-container'>
         {
-          popularMovies.map((item, index) => {
+          popularMovies?.map((item, index) => {
             return <PopularMovieCard popularMovie={item} key={index} />
           })
         }
