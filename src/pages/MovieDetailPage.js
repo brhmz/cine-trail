@@ -29,7 +29,7 @@ function MovieDetailPage() {
       setnumberOfReviewsShown(numberOfReviewsShown + 3);
     } else if (numberOfReviewsShown >= reviews.length) {
       setnumberOfReviewsShown(3);
-    }
+    } 
   };
 
   const itemsToShow = useMemo(() => {
@@ -94,7 +94,7 @@ function MovieDetailPage() {
         <h2>Reviews</h2>
         <hr />
         <div>
-        {itemsToShow.length ? itemsToShow : "Loading..."}
+        {itemsToShow.length ? itemsToShow : "There is no comment yet."}
         </div> 
         <button id='show-more-button' onClick={showMore}>{numberOfReviewsShown >= reviews?.length ? 'End of reviews. Collapse!' : 'Read more reviews'}</button> 
         <hr />
