@@ -61,11 +61,23 @@
     justify-content: space-between;
 }
 
-.reviews-container {
+.review {
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 90px;
 }
+
+.review:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 12px;
+ }
+
+.review-dark:hover {
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 12px;
+ }
 
 hr {
     margin: 15px auto;
@@ -80,7 +92,28 @@ hr {
     align-items: center;
 }
 
-.content-container {
+.review-content {
     text-align: left;
     width: 70%;
+}
+
+.read-less {
+    color: var(--grey-text);
+    font-size: small;
+}
+
+.read-more {
+    color: var(--grey-text);
+    font-size: small;
+}
+
+#show-more-button {
+    background-color: #ffffff00;
+    border: none;
+    color: gray;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 8px;
 }

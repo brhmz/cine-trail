@@ -18,7 +18,7 @@ function PopularMovies() {
     axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${pageNumber}`)
       .then(response => setPopularMovies(response.data.results))
       .catch(err => console.log(err))
-  }, [pageNumber])
+  }, [pageNumber, apiKey])
 
   return (
     <div className={darkMode === true ? 'popular-movies-container popular-movies-container-dark' : 'popular-movies-container'}>

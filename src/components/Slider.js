@@ -20,7 +20,7 @@ function Slider() {
     axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`)
       .then(response => setUpComingMovies(response.data.results))
       .catch(err => console.log(err))
-  }, [])
+  }, [apiKey])
 
   const next = () => { index < (upComingMovies.length - 1) && index >= 0 ? setIndex(index + 1) : setIndex(0) }
   const previous = () => { index > 0 && index <= (upComingMovies.length - 1) ? setIndex(index - 1) : setIndex(upComingMovies.length - 1) }

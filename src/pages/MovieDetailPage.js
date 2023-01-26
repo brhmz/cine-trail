@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {useEffect, useState, useContext } from 'react'
+import React, {useEffect, useState, useContext, useMemo } from 'react'
 import { useParams } from 'react-router';
 import { ThemeContext } from '../contexts/ThemeContext';
 import '../styles/moviedetailpage.css'
@@ -20,8 +20,25 @@ function MovieDetailPage() {
   const [trailerUrl, setTrailerUrl] = useState(null)
   const [isFavorite, setFavorite] = useState(false)
   const [reviews, setReviews] = useState([])
+  const [numberOfReviewsShown, setnumberOfReviewsShown] = useState(3)
   const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
   const videoBaseUrl = "https://www.youtube.com/watch?v="
+
+  const showMore = () => {
+    if (numberOfReviewsShown < reviews.length) {
+      setnumberOfReviewsShown(numberOfReviewsShown + 3);
+    } else if (numberOfReviewsShown >= reviews.length) {
+      setnumberOfReviewsShown(3);
+    }
+  };
+
+  const itemsToShow = useMemo(() => {
+    return reviews
+      .slice(0, numberOfReviewsShown)
+      .map((item, index) => {
+        return <Review review={item} key={index} />
+      });
+  }, [reviews, numberOfReviewsShown]);
 
 
   useEffect(() => {
@@ -36,7 +53,7 @@ function MovieDetailPage() {
       axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}&language=en-US`)
       .then(response=>setReviews(response.data.results))
       .catch(err=>console.log(err))
-   }, [movieId])
+   }, [movieId, apiKey])
 
   return (
     <div className={darkMode===true ? 'movie-detail-page-container movie-detail-page-container-dark' : 'movie-detail-page-container'}>
@@ -76,13 +93,10 @@ function MovieDetailPage() {
       <div>
         <h2>Reviews</h2>
         <hr />
-        <div className="reviews">
-        {
-          reviews?.map((item, index) => {
-            return <Review review={item} key={index} />
-          })
-        }
-        </div>  
+        <div>
+        {itemsToShow.length ? itemsToShow : "Loading..."}
+        </div> 
+        <button id='show-more-button' onClick={showMore}>{numberOfReviewsShown >= reviews?.length ? 'End of reviews. Collapse!' : 'Read more reviews'}</button> 
         <hr />
       </div>
     </div>
