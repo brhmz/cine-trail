@@ -9,7 +9,6 @@ function PopularMovies() {
 
   const apiKey = process.env.REACT_APP_API_KEY
   const { darkMode } = useContext(ThemeContext)
-
   const [popularMovies, setPopularMovies] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

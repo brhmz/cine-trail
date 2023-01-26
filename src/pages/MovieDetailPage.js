@@ -9,7 +9,6 @@ import Genres from '../components/Genres';
 import Review from '../components/Review';
 
 
-
 function MovieDetailPage() {
 
   const apiKey = process.env.REACT_APP_API_KEY

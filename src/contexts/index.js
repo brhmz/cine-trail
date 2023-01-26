@@ -5,11 +5,11 @@ import UserContextProvider from './UserContext'
 function ContextReducer(props) {
   return (
     <UserContextProvider>
-        <ThemeContextProvider>
-            {props.children}
-        </ThemeContextProvider>
+      <ThemeContextProvider>
+        {props.children}
+      </ThemeContextProvider>
     </UserContextProvider>
-    
+
   )
 }
 

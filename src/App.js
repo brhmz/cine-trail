@@ -7,18 +7,18 @@ import MovieDetailPage from './pages/MovieDetailPage';
 
 function App() {
 
-  
+
 
 
 
   return (
     <BrowserRouter>
-      <ContextReducer>    
-        <Header/>
-          <Routes>
-            <Route path='/' element={<HomePage/>} />
-            <Route path='/moviedetails/:movieId' element={<MovieDetailPage/>} />
-          </Routes>
+      <ContextReducer>
+        <Header />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/moviedetails/:movieId' element={<MovieDetailPage />} />
+        </Routes>
       </ContextReducer>
     </BrowserRouter>
   );

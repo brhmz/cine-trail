@@ -10,8 +10,8 @@ import axios from 'axios';
 
 function Header() {
 
-  const { darkMode, setDarkMode } = useContext(ThemeContext)
-  const apiKey = process.env.REACT_APP_API_KEY
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
+  const apiKey = process.env.REACT_APP_API_KEY;
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -21,11 +21,10 @@ function Header() {
   }
 
   useEffect(() => {
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
       .then(response => setFilteredMovies(response.data.results))
       .catch(err => console.log(err))
   }, [query])
-  
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
@@ -35,13 +34,13 @@ function Header() {
         </Link>
       </div>
       <div className='search-container'>
-        <input id="search-input" 
-        type="text"
-        onChange={(e) => {
-          setQuery(e.target.value) 
-        }} 
-        className={darkMode ? 'search-input search-input-dark' : 'search-input'} 
-        placeholder='Search any movie' />
+        <input id="search-input"
+          type="text"
+          onChange={(e) => {
+            setQuery(e.target.value)
+          }}
+          className={darkMode ? 'search-input search-input-dark' : 'search-input'}
+          placeholder='Search any movie' />
       </div>
       <div className={query.length === 0 ? 'no-search' : 'filtered-movie-cards-container'}>
         {

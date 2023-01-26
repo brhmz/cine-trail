@@ -9,7 +9,7 @@
 
 .slider-overlay {
     background: #000;
-    background: linear-gradient(90deg,#000,hsla(0,0%,100%,0));
+    background: linear-gradient(90deg, #000, hsla(0, 0%, 100%, 0));
     height: 100%;
     position: absolute;
     width: 100%;
@@ -37,7 +37,7 @@ p {
     z-index: 1;
 }
 
-.right-arrow{
+.right-arrow {
     color: var(--red);
     cursor: pointer;
     font-size: 4rem;
@@ -47,7 +47,7 @@ p {
     right: 0;
 }
 
-.left-arrow{
+.left-arrow {
     color: var(--red);
     cursor: pointer;
     font-size: 4rem;
@@ -71,14 +71,6 @@ p {
     display: flex;
 }
 
-.rating-stars-container {
-
-}
-
-.rating-stars {
- 
-}
-
 @media (max-width: 768px) {
     .slider-info {
         width: 70%;
@@ -86,7 +78,7 @@ p {
 }
 
 @media (max-width: 468px) {
-    .slider-info > p {
+    .slider-info>p {
         display: none;
     }
 }

@@ -13,14 +13,12 @@
 }
 
 .filtered-movie-cards-container {
-    position:fixed ;
+    position: fixed;
     overflow: hidden;
     width: 40%;
     height: 300px;
     top: var(--header-height);
     left: 27%;
-    
-
 }
 
 .filtered-movie-image {

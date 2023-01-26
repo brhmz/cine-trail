@@ -33,10 +33,11 @@ h3 {
 }
 
 @media (max-width:1018px) {
-.popular-movies-container {
-    max-width: 100%;
-}
-.movie-cards-container {
-    justify-content: center;
-}
+    .popular-movies-container {
+        max-width: 100%;
+    }
+
+    .movie-cards-container {
+        justify-content: center;
+    }
 }

@@ -15,12 +15,11 @@
   --dark-bg: #221f1f;
   --light-bg: #fff;
   --footer-bg: #373232;
-  --transparent-bg: rgba(20,20,20,0.7);
+  --transparent-bg: rgba(20, 20, 20, 0.7);
   --grey: #2d2d2d;
   --grey-text: #9b9b9b;
 }
 
 body {
- background-color: var(--dark-bg);
+  background-color: var(--dark-bg);
 }
-

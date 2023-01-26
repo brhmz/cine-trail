@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 
 
-function PopularMovieCard({popularMovie}) {
+function PopularMovieCard({ popularMovie }) {
 
   let navigate = useNavigate()
 
@@ -15,17 +15,17 @@ function PopularMovieCard({popularMovie}) {
 
   return (
     <div onClick={() => navigate(`/moviedetails/${popularMovie.id}`)} className='popular-movie-card' style={{ backgroundImage: `url(${imageBaseUrl + popularMovie?.poster_path})` }}>
-        <div className='polular-movie-card-info'>
-          <div className='popular-movie-rating'>
-            <RatingStars
-                currentRating={popularMovie?.vote_average}
-              />
-          </div>
-          <div className='popular-movie-detail'>
-            <p>{popularMovie.title}</p>
-            <p>Rating: {Math.floor(popularMovie.vote_average/2)}</p>
-          </div>
+      <div className='polular-movie-card-info'>
+        <div className='popular-movie-rating'>
+          <RatingStars
+            currentRating={popularMovie?.vote_average}
+          />
         </div>
+        <div className='popular-movie-detail'>
+          <p>{popularMovie.title}</p>
+          <p>Rating: {Math.floor(popularMovie.vote_average / 2)}</p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -7,19 +7,19 @@ import PopularMovies from '../components/PopularMovies';
 
 function HomePage() {
 
-  const {darkMode} = useContext(ThemeContext)
+  const { darkMode } = useContext(ThemeContext)
 
 
   return (
-    <div className={darkMode===true ? 'home-page home-page-dark' : 'home-page'}>
+    <div className={darkMode === true ? 'home-page home-page-dark' : 'home-page'}>
       <div className='slider-container'>
-       <Slider /> 
+        <Slider />
       </div>
-      <div className={darkMode===true ? 'home-page-body home-page-body-dark' : 'home-page-body'}>
-          <PopularMovies /> 
-          <TopRatedMovies />
+      <div className={darkMode === true ? 'home-page-body home-page-body-dark' : 'home-page-body'}>
+        <PopularMovies />
+        <TopRatedMovies />
       </div>
-      
+
     </div>
   )
 }
