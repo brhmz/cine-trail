@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import ReactReadMoreReadLess from "react-read-more-read-less";
-import '../styles/moviedetailpage.css'
-import avatar from '../assests/squirtle.jpg'
+import './reviews.css'
+import avatar from '../../assests/squirtle.jpg'
 
 function Review({ review }) {
 

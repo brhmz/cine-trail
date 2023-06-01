@@ -1,12 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState, useContext, useMemo } from 'react'
 import { useParams } from 'react-router';
-import { ThemeContext } from '../contexts/ThemeContext';
-import '../styles/moviedetailpage.css'
+import { ThemeContext } from '../../contexts/ThemeContext';
+import './moviedetailpage.css'
 import ReactPlayer from 'react-player'
-import RatingStars from '../components/RatingStars';
-import Genres from '../components/Genres';
-import Review from '../components/Review';
+import RatingStars from '../../components/Rating/RatingStars';
+import Genres from '../../components/Genres/Genres';
+import Review from '../../components/Review/Review';
 
 
 function MovieDetailPage() {

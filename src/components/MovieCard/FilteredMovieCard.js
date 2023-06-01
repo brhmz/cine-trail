@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../styles/filteredmovies.css"
+import "./moviecard.css"
 import { useNavigate } from 'react-router';
 
 function FilteredMovieCard({ movie }) {

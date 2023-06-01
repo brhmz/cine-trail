@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/header.css'
-import "../styles/filteredmovies.css"
+import './header.css'
+import "../../components/MovieCard/moviecard.css"
 import { BsSun } from 'react-icons/bs';
 import { BsFillMoonFill } from 'react-icons/bs';
-import { ThemeContext } from '../contexts/ThemeContext';
-import FilteredMovieCard from './FilteredMovieCard';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import FilteredMovieCard from '../MovieCard/FilteredMovieCard';
 import axios from 'axios';
 
 function Header() {

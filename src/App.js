@@ -1,9 +1,9 @@
-import './styles/App.css';
+import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import HomePage from './pages/HomePage';
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage';
 import ContextReducer from './contexts/index'
-import MovieDetailPage from './pages/MovieDetailPage';
+import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
 
 function App() {
 

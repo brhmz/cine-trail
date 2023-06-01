@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/topratedmovies.css'
+import "./moviecard.css"
 import { useNavigate } from 'react-router';
 
 function TopRatedMovieCard({ topRatedMovie }) {

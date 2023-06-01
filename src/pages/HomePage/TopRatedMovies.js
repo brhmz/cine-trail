@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import '../styles/topratedmovies.css'
-import { ThemeContext } from '../contexts/ThemeContext';
+import "../../components/MovieCard/moviecard.css"
+import { ThemeContext } from '../../contexts/ThemeContext';
 import axios from 'axios';
-import TopRatedMovieCard from '../components/TopRatedMovieCard.js'
+import TopRatedMovieCard from '../../components/MovieCard/TopRatedMovieCard.js'
 
 function TopRatedMovies() {
 

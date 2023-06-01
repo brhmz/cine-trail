@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/slider.css';
+import './slider.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import Genres from './Genres';
-import RatingStars from './RatingStars';
+import Genres from '../Genres/Genres';
+import RatingStars from '../Rating/RatingStars';
 
 
 function Slider() {
