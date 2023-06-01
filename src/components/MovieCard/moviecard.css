@@ -152,6 +152,7 @@
 }
 
 .top-rated-movie-detail {
+    height: 100px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -159,6 +160,7 @@
 
 .top-rated-movie-detail p {
     text-align: center;
+    color: white;
 }
 
 
@@ -166,14 +168,6 @@
     .top-rated-movie-cards-container {
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
-
-    .top-rated-movie-card p {
-        text-align: center;
-    }
-
-    .top-rated-movie-card img {
-        margin: 10px;
-    }
-
 }

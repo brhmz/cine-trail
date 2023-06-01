@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import ContextReducer from './contexts/index'
 import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
+import SignUp from './pages/SignUp/SignUp';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/moviedetails/:movieId' element={<MovieDetailPage />} />
+          <Route path='/signup' element={<SignUp />} />
         </Routes>
       </ContextReducer>
     </BrowserRouter>

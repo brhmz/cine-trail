@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './header.css'
 import "../../components/MovieCard/moviecard.css"
 import { BsSun } from 'react-icons/bs';
@@ -9,6 +9,8 @@ import FilteredMovieCard from '../MovieCard/FilteredMovieCard';
 import axios from 'axios';
 
 function Header() {
+
+  let navigate = useNavigate();
 
   const { darkMode, setDarkMode } = useContext(ThemeContext);
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -24,7 +26,7 @@ function Header() {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1&include_adult=false`)
       .then(response => setFilteredMovies(response.data.results))
       .catch(err => console.log(err))
-  }, [query])
+  }, [query, apiKey])
 
   return (
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
@@ -58,7 +60,7 @@ function Header() {
           <div className={darkMode ? 'theme-button active-theme' : 'theme-button'}><BsFillMoonFill onClick={() => handleTheme(true)} color='white' /></div>
         </div>
         <div>
-          <button className='create-account'>Create Account</button>
+          <button onClick={()=>navigate('/signup')} className='create-account'>Create Account</button>
         </div>
       </div>
     </div>
