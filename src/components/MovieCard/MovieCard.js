@@ -25,23 +25,16 @@ function MovieCard({ data, imageUrl, width, height, cardStyle, radius }) {
     <div onClick={() => navigate(`/moviedetails/${data.id}`)}
       className={cardStyle}
       style={imageStyle}>
-      <div className={cardStyle === 'popular-movie-card'
-        ? 'popular-movie-card-info'
-        : 'top-rated-movie-info'}>
-        <div className={cardStyle === 'popular-movie-card'
-          ? 'popular-movie-rating'
-          : 'top-rated-movie-rating'}>
+      <div className={`${cardStyle}-info`}>
+        <div className={`${cardStyle}-rating`}>
+        .
           <RatingStars
             currentRating={data?.vote_average}
           />
         </div>
-        <div className={cardStyle === 'popular-movie-card'
-          ? 'popular-movie-detail'
-          : 'top-rated-movie-detail'}>
+        <div className={`${cardStyle}-detail`}>
           <p>{data.title}</p>
-          <p className={cardStyle === 'popular-movie-card'
-            ? ''
-            : 'top-rated-movie-rating'}>
+          <p className={`${cardStyle}-rating`}>
             Rating: {Math.floor(data.vote_average / 2)}
           </p>
         </div>

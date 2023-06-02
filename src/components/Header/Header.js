@@ -42,7 +42,8 @@ function Header() {
             setQuery(e.target.value)
           }}
           className={darkMode ? 'search-input search-input-dark' : 'search-input'}
-          placeholder='Search any movie' />
+          placeholder='Search any movie' 
+          />
       </div>
       <div className={query.length === 0 ? 'no-search' : 'filtered-movie-cards-container'}>
         {
@@ -50,6 +51,7 @@ function Header() {
             return <FilteredMovieCard
               movie={item}
               key={index}
+              setQuery={setQuery()}
             />
           })
         }

@@ -5,7 +5,7 @@
 }
 
 .home-page-dark {
-    background-color: rgb(27, 27, 27);
+    background-color: var(--dark-bg);
 }
 
 .home-page-body {
@@ -16,7 +16,7 @@
 }
 
 .home-page-body-dark {
-    background-color: rgb(27, 27, 27);
+    background-color: var(--dark-bg);
 }
 
 @media (max-width:1018px) {

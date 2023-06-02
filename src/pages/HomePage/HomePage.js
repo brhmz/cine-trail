@@ -42,7 +42,7 @@ function HomePage() {
             {
               popularMovies?.map((movie) => {
                 return <MovieCard
-                  cardStyle={"popular-movie-card"}
+                  cardStyle={"popular-movie"}
                   imageUrl={movie.poster_path}
                   data={movie}
                   key={movie.id}
@@ -70,7 +70,7 @@ function HomePage() {
             {
               topRatedMovies?.map((movie) => {
                 return <MovieCard
-                  cardStyle={"top-rated-movie-card"}
+                  cardStyle={"top-rated-movie"}
                   imageUrl={movie.backdrop_path}
                   data={movie} key={movie.id}
                   height={"100px"} width={"200px"} radius={"8px"} />
