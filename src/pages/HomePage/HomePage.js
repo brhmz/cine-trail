@@ -5,10 +5,9 @@ import './homepage.css'
 import axios from 'axios'
 import MovieCard from '../../components/MovieCard/MovieCard';
 
-function HomePage() {
+function HomePage({apiKey}) {
 
   const { darkMode } = useContext(ThemeContext)
-  const apiKey = process.env.REACT_APP_API_KEY
   const [popularMovies, setPopularMovies] = useState([])
   const [topRatedMovies, setTopRatedMovies] = useState()
   const [pageNumber, setPageNumber] = useState(1)
@@ -29,7 +28,7 @@ function HomePage() {
   return (
     <div className={darkMode === true ? 'home-page home-page-dark' : 'home-page'}>
       <div className='slider-container'>
-        <Slider />
+        <Slider apiKey={apiKey} />
       </div>
       <div className={darkMode === true
         ? 'home-page-body home-page-body-dark'

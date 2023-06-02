@@ -2,17 +2,16 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Genres({ currentMovie }) {
+function Genres({ currentMovie, apiKey }) {
 
     const [allGenres, setAllGenres] = useState([])
-    const apiKey = process.env.REACT_APP_API_KEY
     const currentGenreNames = []
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`)
             .then(response => setAllGenres(response.data.genres))
             .catch(err => console.log(err))
-    }, [])
+    }, [apiKey])
 
     function genreNamesFinder() {
         if (currentMovie?.genre_ids) {

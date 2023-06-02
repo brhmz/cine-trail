@@ -9,7 +9,7 @@ function MovieCard({ data, imageUrl, width, height, cardStyle, radius }) {
     backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrl}")`,
     width: width,
     height: height,
-    backgroundRepest: "no-repeat",
+    backgroundRepeat: "no-repeat",
     backgrounPosition: "center",
     backgroundSize: "cover",
     position: "relative",

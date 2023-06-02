@@ -8,14 +8,14 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import FilteredMovieCard from '../MovieCard/FilteredMovieCard';
 import axios from 'axios';
 
-function Header() {
+function Header({apiKey}) {
 
   let navigate = useNavigate();
 
   const { darkMode, setDarkMode } = useContext(ThemeContext);
-  const apiKey = process.env.REACT_APP_API_KEY;
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
+  const [inputValue, setInputValue] = useState('')
 
   const handleTheme = (theme) => {
     setDarkMode(theme)
@@ -38,12 +38,13 @@ function Header() {
       <div className='search-container'>
         <input id="search-input"
           type="text"
+          value={inputValue}
           onChange={(e) => {
             setQuery(e.target.value)
+            setInputValue(e.target.value)
           }}
           className={darkMode ? 'search-input search-input-dark' : 'search-input'}
-          placeholder='Search any movie' 
-          />
+          placeholder='Search any movie' />
       </div>
       <div className={query.length === 0 ? 'no-search' : 'filtered-movie-cards-container'}>
         {
@@ -51,7 +52,8 @@ function Header() {
             return <FilteredMovieCard
               movie={item}
               key={index}
-              setQuery={setQuery()}
+              setQuery={setQuery}
+              setInputValue={setInputValue}
             />
           })
         }

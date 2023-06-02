@@ -8,18 +8,17 @@ import SignUp from './pages/SignUp/SignUp';
 
 function App() {
 
-
-
-
+  const serverUrl = process.env.REACT_APP_SERVER_URL;
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   return (
     <BrowserRouter>
       <ContextReducer>
         <Header />
         <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/moviedetails/:movieId' element={<MovieDetailPage />} />
-          <Route path='/signup' element={<SignUp />} />
+          <Route path='/' element={<HomePage apiKey={apiKey} />} />
+          <Route path='/moviedetails/:movieId' element={<MovieDetailPage apiKey={apiKey} />} />
+          <Route path='/signup' element={<SignUp serverUrl={serverUrl} />} />
         </Routes>
       </ContextReducer>
     </BrowserRouter>

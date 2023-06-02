@@ -9,12 +9,11 @@ import Genres from '../Genres/Genres';
 import RatingStars from '../Rating/RatingStars';
 
 
-function Slider() {
+function Slider({apiKey}) {
 
   const [upComingMovies, setUpComingMovies] = useState([])
   const [index, setIndex] = useState(0)
-  const apiKey = process.env.REACT_APP_API_KEY
-  const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`)
@@ -36,6 +35,7 @@ function Slider() {
         <div className='genres-container'>
           <Genres
             currentMovie={upComingMovies[index]}
+            apiKey={apiKey}
           />
         </div>
         <p>Release Date: {upComingMovies[index]?.release_date}</p>

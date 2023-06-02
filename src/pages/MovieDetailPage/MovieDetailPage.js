@@ -20,7 +20,7 @@ function MovieDetailPage() {
   const [isFavorite, setFavorite] = useState(false)
   const [reviews, setReviews] = useState([])
   const [numberOfReviewsShown, setnumberOfReviewsShown] = useState(3)
-  const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'
   const videoBaseUrl = "https://www.youtube.com/watch?v="
 
   const showMore = () => {

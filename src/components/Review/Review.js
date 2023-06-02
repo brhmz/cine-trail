@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import './reviews.css'
 import avatar from '../../assests/squirtle.jpg'
 
 function Review({ review }) {
-
-  const apiKey = process.env.REACT_APP_API_KEY
+  
   const { darkMode } = useContext(ThemeContext)
   const [imageError, setImageError] = useState(false)
 
