@@ -27,7 +27,6 @@ function MovieCard({ data, imageUrl, width, height, cardStyle, radius }) {
       style={imageStyle}>
       <div className={`${cardStyle}-info`}>
         <div className={`${cardStyle}-rating`}>
-        .
           <RatingStars
             currentRating={data?.vote_average}
           />

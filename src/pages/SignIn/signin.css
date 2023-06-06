@@ -1,0 +1,118 @@
+.sign-up-page-container {
+    width: 60%;
+    margin: 20vh auto auto 10vh;
+    background-color: var(--white);
+    padding: 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    border-radius: 8px;
+}
+
+.sign-up-page-container-dark {
+    color: var(--white);
+    background-color: var(--grey);
+}
+
+.poster-container {
+    height: 250px;
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.poster {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+}
+
+.form-description {
+    font-style: italic;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-container h4{
+    margin-bottom: 0;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.inputs-container input{
+    background-color: var(--grey-text);
+    height: 25px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cancel-button {
+    background-color: var(--red);
+    width: 25%;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    color: var(--white);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.464);
+    cursor: pointer;
+}
+
+.sign-in-button {
+    background-color: rgb(7, 142, 81);
+    width: 25%;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    color: var(--white);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.464);
+    cursor: pointer;
+}
+
+.sign-in {
+    color: var(--red);
+    text-decoration: none;
+}
+
+@media (max-width:1080px) {
+    .sign-up-page-container {
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: var(--header-height) auto;
+        border-radius: 0;
+    }
+
+    .poster-container {
+        width: 100%;
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-container {
+        margin-top: 10px;
+    }
+}

@@ -12,7 +12,7 @@ export default function UserContextProvider(props) {
         } else {
             setUser(JSON.parse(localStorage.getItem('userInfo')))
         }
-        setToken(localStorage.getItem('token'))
+        setToken(localStorage.getItem('token')) 
     }, [])
     return (
         <UserContext.Provider value={{ user, setUser, token, setToken }} >

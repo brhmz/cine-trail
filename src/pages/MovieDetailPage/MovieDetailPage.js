@@ -20,7 +20,7 @@ function MovieDetailPage() {
   const [isFavorite, setFavorite] = useState(false)
   const [reviews, setReviews] = useState([])
   const [numberOfReviewsShown, setnumberOfReviewsShown] = useState(3)
-  const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/'
   const videoBaseUrl = "https://www.youtube.com/watch?v="
 
   const showMore = () => {
@@ -42,15 +42,15 @@ function MovieDetailPage() {
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`)
-      .then(response => setTrailerUrl(response.data.results.find((item) => (item.type) === "Trailer")))
+      .then(response => setTrailerUrl(response.data.results?.find((item) => (item.type) === "Trailer")))
       .catch(err => console.log(err))
 
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
-      .then(response => setSelectedMovie(response.data))
+      .then(response => setSelectedMovie(response?.data))
       .catch(err => console.log(err))
 
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}&language=en-US`)
-      .then(response => setReviews(response.data.results))
+      .then(response => setReviews(response.data?.results))
       .catch(err => console.log(err))
   }, [movieId, apiKey])
 
@@ -80,15 +80,15 @@ function MovieDetailPage() {
           </div>
           <div className="movie-info">
             <h2>{selectedMovie?.tagline}</h2>
-            <h4>{selectedMovie?.overview}</h4>
-            <h4>Status: {selectedMovie?.status}</h4>
-            <h4>Runtime: {selectedMovie?.runtime}</h4>
-            <h4>Budget: {selectedMovie?.budget}</h4>
-            <h4>
+            <p>{selectedMovie?.overview}</p>
+            <p>Status: {selectedMovie?.status}</p>
+            <p>Runtime: {selectedMovie?.runtime}</p>
+            <p>Budget: {selectedMovie?.budget}</p>
+            <p>
               <Genres
                 currentMovie={selectedMovie}
               />
-            </h4>
+            </p>
           </div>
         </div>
         <div>

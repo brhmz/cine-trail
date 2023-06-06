@@ -82,7 +82,7 @@
 }
 
 .popular-movies-container {
-    max-width: 80%;
+    max-width: 90%;
 }
 
 .popular-movies-container-dark {
@@ -104,6 +104,7 @@
     align-items: center;
     margin: 18px auto;
     cursor: pointer;
+    width: 60%;
 }
 
 .current-page {

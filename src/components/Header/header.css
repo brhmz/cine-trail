@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
 .header-container {
     background-color: var(--white);
     display: flex;
@@ -21,9 +23,14 @@
 
 .logo {
     color: var(--red);
-    font-size: 24pt;
+    font-size: 36pt;
     margin: 0 auto;
     text-decoration: none;
+}
+
+.logo-cinetrail {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
 }
 
 .search-container {
@@ -87,6 +94,56 @@
     padding: 8px 24px;
     color: var(--white);
     cursor: pointer;
+}
+
+.header-profile-container {
+    margin: auto 10px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.header-profile-container-dark {
+    color: var(--white);
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid #000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.profile-username {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4px;
+}
+
+.profile-options-container {
+    background-color: var(--dark-bg);
+    width: 100%;
+    padding: 10px 0px 5px 5px;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    margin-top: 8px;
+}
+
+.logout-button {
+    color: var(--red);
+    font-weight: 700;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.my-favorites-button {
+    text-decoration: none;
+    color: var(--grey-text);
+    font-weight: 600;
 }
 
 @media (max-width: 600px) {

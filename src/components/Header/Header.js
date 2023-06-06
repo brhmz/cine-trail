@@ -7,19 +7,31 @@ import { BsFillMoonFill } from 'react-icons/bs';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import FilteredMovieCard from '../MovieCard/FilteredMovieCard';
 import axios from 'axios';
+import { UserContext } from '../../contexts/UserContext';
 
-function Header({apiKey}) {
+
+function Header() {
 
   let navigate = useNavigate();
 
   const { darkMode, setDarkMode } = useContext(ThemeContext);
+  const { token, setToken, user } = useContext(UserContext);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [query, setQuery] = useState('');
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState('');
+  const [profileOptions, setProfileOptions] = useState(false);
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleTheme = (theme) => {
     setDarkMode(theme)
     localStorage.setItem('darkMode', theme)
+  }
+
+  const handleLogout = () => {
+    localStorage.clear()
+    setToken('')
+    navigate('/')
+    setProfileOptions(false)
   }
 
   useEffect(() => {
@@ -32,7 +44,7 @@ function Header({apiKey}) {
     <div className={darkMode ? 'header-container header-container-dark' : 'header-container'}>
       <div className='logo-container'>
         <Link className='logo' to='/'>
-          <p>CineTrail</p>
+          <p className='logo-cinetrail'>CineTrail</p>
         </Link>
       </div>
       <div className='search-container'>
@@ -64,7 +76,26 @@ function Header({apiKey}) {
           <div className={darkMode ? 'theme-button active-theme' : 'theme-button'}><BsFillMoonFill onClick={() => handleTheme(true)} color='white' /></div>
         </div>
         <div>
-          <button onClick={()=>navigate('/signup')} className='create-account'>Create Account</button>
+          {
+            token
+              ? <div className={darkMode
+                ? 'header-profile-container header-profile-container-dark'
+                : 'header-profile-container'}
+                onClick={() => setProfileOptions(!profileOptions)}>
+                <img src={user.image_url} alt={user.username} className='profile-image'/>
+                <p className='profile-username'>Welcome {user.username}</p>
+                {
+                  profileOptions
+                    ? <div className='profile-options-container'>
+                      <Link className='my-favorites-button' to='/myfavorites'>My Favorites</Link>
+                      <p className='logout-button' onClick={handleLogout}>Logout</p>
+                    </div>
+                    : null
+                }
+              </div>
+              : <button onClick={() => navigate('/signup')}
+                className='create-account'>Create Account</button>
+          }
         </div>
       </div>
     </div>

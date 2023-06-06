@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage/HomePage';
 import ContextReducer from './contexts/index'
 import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
 import SignUp from './pages/SignUp/SignUp';
+import SignIn from './pages/SignIn/SignIn';
+import MyFavorites from './pages/MyFavorites/MyFavorites';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
           <Route path='/' element={<HomePage apiKey={apiKey} />} />
           <Route path='/moviedetails/:movieId' element={<MovieDetailPage apiKey={apiKey} />} />
           <Route path='/signup' element={<SignUp serverUrl={serverUrl} />} />
+          <Route path='/signin' element={<SignIn serverUrl={serverUrl} />} />
+          <Route path='/favoritemovies/user/:userid' element={<MyFavorites serverUrl={serverUrl} />} />
         </Routes>
       </ContextReducer>
     </BrowserRouter>

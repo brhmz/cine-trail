@@ -29,7 +29,7 @@ function SignUp({ serverUrl }) {
           setPassword('')
           setEmail('')
           setUsername('')
-          setTimeout(()=>{navigate('/')}, 2000)
+          setTimeout(()=>{navigate('/signin')}, 2000)
         }
       })
       .catch(err => console.log(err))
@@ -83,7 +83,7 @@ function SignUp({ serverUrl }) {
             }
           </form>
       }
-    </div >
+    </div>
   )
 }
 

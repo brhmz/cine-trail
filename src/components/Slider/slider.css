@@ -71,6 +71,12 @@
     display: flex;
 }
 
+@media (max-width: 900px) {
+    .slider-info {
+        width: 65%;
+    }
+}
+
 @media (max-width: 768px) {
     .slider-info {
         width: 70%;

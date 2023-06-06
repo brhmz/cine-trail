@@ -5,13 +5,14 @@ import './homepage.css'
 import axios from 'axios'
 import MovieCard from '../../components/MovieCard/MovieCard';
 
-function HomePage({apiKey}) {
+function HomePage() {
 
   const { darkMode } = useContext(ThemeContext)
   const [popularMovies, setPopularMovies] = useState([])
   const [topRatedMovies, setTopRatedMovies] = useState()
   const [pageNumber, setPageNumber] = useState(1)
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${pageNumber}`)
