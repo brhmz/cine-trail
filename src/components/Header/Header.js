@@ -21,6 +21,7 @@ function Header() {
   const [query, setQuery] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [profileOptions, setProfileOptions] = useState(false);
+  const [isIconClicked, setIconClicked] = useState(false);
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleTheme = (theme) => {
@@ -49,9 +50,23 @@ function Header() {
         </Link>
       </div>
       <div className='search-container'>
-        <BiSearchAlt className={darkMode ? 'search-icon search-icon-dark' : 'search-icon'} 
-          
+        <BiSearchAlt className={darkMode ? 'search-icon search-icon-dark' : 'search-icon'}
+          onClick={() => setIconClicked(!isIconClicked)}
         />
+        {
+          isIconClicked
+            ? <div className='search-icon-input-container'>
+              <input className='search-icon-input'
+                type="text"
+                value={inputValue}
+                onChange={(e) => {
+                  setQuery(e.target.value)
+                  setInputValue(e.target.value)
+                }}
+                placeholder='Search any movie' />
+            </div>
+            : null
+        }
         <input id="search-input"
           type="text"
           value={inputValue}
