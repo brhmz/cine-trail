@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState, useContext, useMemo } from 'react'
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { UserContext } from '../../contexts/UserContext';
 import './moviedetailpage.css'
@@ -23,6 +23,8 @@ function MovieDetailPage({ serverUrl }) {
   const [numberOfReviewsShown, setnumberOfReviewsShown] = useState(3)
   const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/'
   const videoBaseUrl = "https://www.youtube.com/watch?v="
+
+  let navigate = useNavigate();
 
   const showMore = () => {
     if (numberOfReviewsShown < reviews.length) {
@@ -68,6 +70,7 @@ function MovieDetailPage({ serverUrl }) {
   const addToFavorites = () => {
     if (!token) {
       alert('You need to login first!')
+      navigate('/signin')
     } else if (token === null || token === undefined) {
       alert('Something went wrong, try again later.')
     } else {
