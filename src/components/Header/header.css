@@ -35,6 +35,7 @@
 
 .search-container {
     width: 40%;
+    display: flex;
 }
 
 .search-input {
@@ -146,6 +147,17 @@
     font-weight: 600;
 }
 
+.search-icon {
+    color: var(--grey);
+    font-size: 24px;
+    margin: auto 5px;
+    display: none;
+}
+
+.search-icon-dark {
+    color: var(--white);
+}
+
 @media (max-width: 600px) {
     .header-container {
         background-color: var(--white);
@@ -160,18 +172,32 @@
     }
 
     .search-container {
-        width: 100%;
-        margin-top: 1px;
-        order: 3;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-input {
+        display: none;
+    }
+
+    .search-icon {
+        display:unset;
     }
 
     .logo {
         margin: 0px;
         text-decoration: none;
     }
+
+    .profile-options-container {
+        width: 200px;
+        margin-left: -50px;
+    }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 453px) {
     .create-account {
         display: none;
     }
@@ -181,6 +207,9 @@
     }
 
     .search-container {
+        display: none;
+    }
+    .profile-username {
         display: none;
     }
 }

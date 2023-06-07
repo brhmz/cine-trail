@@ -11,8 +11,12 @@
 .home-page-body {
     display: flex;
     background-color: var(--white);
-    padding: 15px 25px;
+    padding: 15px 5px 15px 5px;
     justify-content: space-between;
+}
+
+.home-page-body h3{
+    padding: 0.2em 1em;
 }
 
 .home-page-body-dark {

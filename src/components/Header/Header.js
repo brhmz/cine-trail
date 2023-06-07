@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './header.css'
 import "../../components/MovieCard/moviecard.css"
+import { BiSearchAlt } from 'react-icons/bi';
 import { BsSun } from 'react-icons/bs';
 import { BsFillMoonFill } from 'react-icons/bs';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -48,6 +49,9 @@ function Header() {
         </Link>
       </div>
       <div className='search-container'>
+        <BiSearchAlt className={darkMode ? 'search-icon search-icon-dark' : 'search-icon'} 
+          
+        />
         <input id="search-input"
           type="text"
           value={inputValue}
@@ -82,7 +86,7 @@ function Header() {
                 ? 'header-profile-container header-profile-container-dark'
                 : 'header-profile-container'}
                 onClick={() => setProfileOptions(!profileOptions)}>
-                <img src={user.image_url} alt={user.username} className='profile-image'/>
+                <img src={user.image_url} alt={user.username} className='profile-image' />
                 <p className='profile-username'>Welcome {user.username}</p>
                 {
                   profileOptions
