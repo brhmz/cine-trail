@@ -11,3 +11,16 @@
     min-height: 100vh;
     background-color: var(--dark-bg);
 }
+
+.logged-in-header {
+    width: 100%;
+}
+
+.logged-out-header {
+    width: 100%;
+    filter: grayscale(100%);
+}
+
+.my-favorites-title {
+    margin: 10px 0 10px 10px;
+}
