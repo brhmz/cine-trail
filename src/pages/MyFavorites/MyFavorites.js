@@ -17,14 +17,14 @@ function MyFavorites({ serverUrl }) {
         axios.get(`${serverUrl}/favoriteMovies/user/${user?._id}`)
             .then(res => { setFavoriteMovies(res.data.favorites) })
             .catch(err => console.log(err))
-    }, [user])
+    }, [user, serverUrl])
 
     return (
         <div className={darkMode === true
             ? 'my-favorites-page-container my-favorites-page-container-dark'
             : 'my-favorites-page-container'}>
             <img className={token ? 'logged-in-header' : 'logged-out-header'}
-            src={headerImg}/>
+            src={headerImg} alt='people watches movies.'/>
             <h2 className='my-favorites-title'>My Favorite Movies</h2>
             <div>
                 {
