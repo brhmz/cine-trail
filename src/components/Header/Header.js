@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './header.css'
@@ -6,7 +7,6 @@ import { BsSun } from 'react-icons/bs';
 import { BsFillMoonFill } from 'react-icons/bs';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import FilteredMovieCard from '../MovieCard/FilteredMovieCard';
-import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
 
 
