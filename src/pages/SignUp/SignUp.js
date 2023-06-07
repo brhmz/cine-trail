@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './signup.css'
-import poster from '../../assests/movie-theatre.webp'
+import poster from '../../assests/show-time.jpg'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import axios from 'axios'
