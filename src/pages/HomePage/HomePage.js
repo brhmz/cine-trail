@@ -44,7 +44,7 @@ function HomePage() {
                 return <MovieCard
                   cardStyle={"popular-movie"}
                   imageUrl={movie.poster_path}
-                  data={movie}
+                  movie={movie}
                   key={movie.id}
                   height={"300px"} width={"200px"} radius={"8px"} />
               })
@@ -72,7 +72,7 @@ function HomePage() {
                 return <MovieCard
                   cardStyle={"top-rated-movie"}
                   imageUrl={movie.backdrop_path}
-                  data={movie} key={movie.id}
+                  movie={movie} key={movie.id}
                   height={"100px"} width={"200px"} radius={"8px"} />
               })
             }

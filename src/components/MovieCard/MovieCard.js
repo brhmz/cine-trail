@@ -3,7 +3,7 @@ import RatingStars from '../Rating/RatingStars';
 import "./moviecard.css"
 import { useNavigate } from 'react-router';
 
-function MovieCard({ data, imageUrl, width, height, cardStyle, radius }) {
+function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
 
   const imageStyle = {
     backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrl}")`,
@@ -22,19 +22,19 @@ function MovieCard({ data, imageUrl, width, height, cardStyle, radius }) {
   let navigate = useNavigate()
 
   return (
-    <div onClick={() => navigate(`/moviedetails/${data.id}`)}
+    <div onClick={() => navigate(`/moviedetails/${movie.id}`)}
       className={cardStyle}
       style={imageStyle}>
       <div className={`${cardStyle}-info`}>
         <div className={`${cardStyle}-rating`}>
           <RatingStars
-            currentRating={data?.vote_average}
+            currentRating={movie?.vote_average}
           />
         </div>
         <div className={`${cardStyle}-detail`}>
-          <p>{data.title}</p>
+          <p>{movie.title}</p>
           <p className={`${cardStyle}-rating`}>
-            Rating: {Math.floor(data.vote_average / 2)}
+            Rating: {Math.floor(movie.vote_average / 2)}
           </p>
         </div>
       </div>

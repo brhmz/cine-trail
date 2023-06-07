@@ -1,0 +1,13 @@
+.my-favorites-page-container {
+    margin-top: var(--header-height);
+    color: black;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.my-favorites-page-container-dark {
+    margin-top: var(--header-height);
+    color: white;
+    min-height: 100vh;
+    background-color: var(--dark-bg);
+}

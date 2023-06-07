@@ -13,7 +13,7 @@ function Slider() {
 
   const [upComingMovies, setUpComingMovies] = useState([])
   const [index, setIndex] = useState(0)
-  const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/original'
   const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {

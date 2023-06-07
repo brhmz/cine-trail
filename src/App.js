@@ -11,18 +11,17 @@ import MyFavorites from './pages/MyFavorites/MyFavorites';
 function App() {
 
   const serverUrl = process.env.REACT_APP_SERVER_URL;
-  const apiKey = process.env.REACT_APP_API_KEY;
 
   return (
     <BrowserRouter>
       <ContextReducer>
         <Header />
         <Routes>
-          <Route path='/' element={<HomePage apiKey={apiKey} />} />
-          <Route path='/moviedetails/:movieId' element={<MovieDetailPage apiKey={apiKey} />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/moviedetails/:movieId' element={<MovieDetailPage serverUrl={serverUrl} />} />
           <Route path='/signup' element={<SignUp serverUrl={serverUrl} />} />
           <Route path='/signin' element={<SignIn serverUrl={serverUrl} />} />
-          <Route path='/favoritemovies/user/:userid' element={<MyFavorites serverUrl={serverUrl} />} />
+          <Route path='/myfavorites' element={<MyFavorites serverUrl={serverUrl} />} />
         </Routes>
       </ContextReducer>
     </BrowserRouter>

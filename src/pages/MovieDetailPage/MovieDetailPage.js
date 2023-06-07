@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState, useContext, useMemo } from 'react'
 import { useParams } from 'react-router';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { UserContext } from '../../contexts/UserContext';
 import './moviedetailpage.css'
 import ReactPlayer from 'react-player'
 import RatingStars from '../../components/Rating/RatingStars';
@@ -9,13 +10,13 @@ import Genres from '../../components/Genres/Genres';
 import Review from '../../components/Review/Review';
 
 
-function MovieDetailPage() {
+function MovieDetailPage({ serverUrl }) {
 
   const apiKey = process.env.REACT_APP_API_KEY
   const { darkMode } = useContext(ThemeContext)
-
+  const { user, token } = useContext(UserContext)
   const { movieId } = useParams();
-  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [movie, setMovie] = useState([])
   const [trailerUrl, setTrailerUrl] = useState(null)
   const [isFavorite, setFavorite] = useState(false)
   const [reviews, setReviews] = useState([])
@@ -46,7 +47,7 @@ function MovieDetailPage() {
       .catch(err => console.log(err))
 
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
-      .then(response => setSelectedMovie(response?.data))
+      .then(response => setMovie(response?.data))
       .catch(err => console.log(err))
 
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}&language=en-US`)
@@ -54,8 +55,37 @@ function MovieDetailPage() {
       .catch(err => console.log(err))
   }, [movieId, apiKey])
 
+  useEffect(() => {
+    axios.post(`${serverUrl}/favoriteMovies/search`, 
+    {
+      user_id: user._id,
+      tmdb_id: movie.id
+    })
+      .then(res => res.data === null ? setFavorite(false) : setFavorite(true))
+      .catch(err => console.log(err))
+  }, [user, movie])
+
+  const addToFavorites = () => {
+    if (!token) {
+      alert('You need to login first!')
+    } else if (token === null || token === undefined) {
+      alert('Something went wrong, try again later.')
+    } else {
+      axios.post(`${serverUrl}/favoriteMovies`, { user_id: user._id, movie_id: movie?.id })
+        .then(res => { setFavorite(true) })
+        .catch(err => console.log(err))
+    }
+  }
+
+  const removeFromFavorites = () => {
+    axios.delete(`${serverUrl}/favoriteMovies/${user._id}/${movie?.id}`)
+      .then(res => { setFavorite(false) })
+      .cath(err => console.log(err))
+  }
   return (
-    <div className={darkMode === true ? 'movie-detail-page-container movie-detail-page-container-dark' : 'movie-detail-page-container'}>
+    <div className={darkMode === true
+      ? 'movie-detail-page-container movie-detail-page-container-dark'
+      : 'movie-detail-page-container'}>
       <div className='trailer-container'>
         <ReactPlayer
           className='react-player'
@@ -66,27 +96,39 @@ function MovieDetailPage() {
       </div>
       <div className='movie-details-container'>
         <div className="movie-title">
-          <h2>{selectedMovie?.title}</h2>
+          <h2>{movie?.title}</h2>
         </div>
         <div className='movie-rating'>
           <RatingStars
-            currentRating={selectedMovie?.vote_average}
+            currentRating={movie?.vote_average}
           />
-          <p className={isFavorite === false ? "is-favorite-false" : "is-favorite-true"} onClick={() => setFavorite(!isFavorite)}>{isFavorite === false ? "Add to favorites." : "Remove from favorties."}</p>
+          {
+            isFavorite
+              ? <p className="is-favorite-true"
+                onClick={removeFromFavorites}>
+                Remove from favorties
+              </p>
+              : <p className="is-favorite-false"
+                onClick={addToFavorites}>
+                Add to favorties
+              </p>
+          }
         </div>
         <div className='movie-details'>
           <div className="movie-detail-image-container">
-            <img className="movie-detail-image" src={imageBaseUrl + selectedMovie?.poster_path} alt="" />
+            <img className="movie-detail-image"
+              src={imageBaseUrl + movie?.poster_path}
+              alt="" />
           </div>
           <div className="movie-info">
-            <h2>{selectedMovie?.tagline}</h2>
-            <p>{selectedMovie?.overview}</p>
-            <p>Status: {selectedMovie?.status}</p>
-            <p>Runtime: {selectedMovie?.runtime}</p>
-            <p>Budget: {selectedMovie?.budget}</p>
+            <h2>{movie?.tagline}</h2>
+            <p>{movie?.overview}</p>
+            <p>Status: {movie?.status}</p>
+            <p>Runtime: {movie?.runtime}</p>
+            <p>Budget: {movie?.budget}</p>
             <p>
               <Genres
-                currentMovie={selectedMovie}
+                currentMovie={movie}
               />
             </p>
           </div>
@@ -97,7 +139,12 @@ function MovieDetailPage() {
           <div>
             {itemsToShow.length ? itemsToShow : "There is no comment yet."}
           </div>
-          <button id={reviews?.length <= 3 ? "no-show-more-button" : "show-more-button"} onClick={showMore}>{numberOfReviewsShown >= reviews?.length ? 'End of reviews. Collapse!' : 'Read more reviews'}</button>
+          <button id={reviews?.length <= 3
+            ? "no-show-more-button"
+            : "show-more-button"}
+            onClick={showMore}>{numberOfReviewsShown >= reviews?.length
+              ? 'End of reviews. Collapse!'
+              : 'Read more reviews'}</button>
           <hr />
         </div>
       </div>
