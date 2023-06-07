@@ -29,7 +29,7 @@ function SignUp({ serverUrl }) {
           setPassword('')
           setEmail('')
           setUsername('')
-          setTimeout(()=>{navigate('/signin')}, 2000)
+          setTimeout(() => { navigate('/signin') }, 2000)
         }
       })
       .catch(err => console.log(err))
@@ -73,7 +73,7 @@ function SignUp({ serverUrl }) {
                 placeholder='Create a new Username.' />
             </div>
             <div className='buttons-container'>
-              <button type='reset' className='cancel-button'>Cancel</button>
+              <button type='button' className='cancel-button' onClick={() => navigate('/')}>Cancel</button>
               <button type='submit' className='sign-in-button'>Sign Up</button>
             </div>
             {

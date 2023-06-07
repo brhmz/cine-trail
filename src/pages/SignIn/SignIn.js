@@ -60,7 +60,7 @@ function SignIn({ serverUrl }) {
                                 placeholder='Create a new password.' />
                         </div>
                         <div className='buttons-container'>
-                            <button type='reset' className='cancel-button'>Cancel</button>
+                            <button type='button'  className='cancel-button' onClick={() => navigate('/')}>Cancel</button>
                             <button type='submit' className='sign-in-button'>Sign In</button>
                         </div>
                         <p className='have-an-account'>Don't you have account yet?<Link className='sign-in' to={'/signup'}> Sign Up!</Link></p>
