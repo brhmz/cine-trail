@@ -218,7 +218,10 @@
 
 @media (max-width: 453px) {
     .create-account {
-        display: none;
+        display: unset;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100px;
     }
 
     .theme-buttons-container {
