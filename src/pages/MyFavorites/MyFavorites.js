@@ -39,6 +39,8 @@ function MyFavorites({ serverUrl }) {
                                 imageUrl={item?.movie[0].poster_path}
                                 key={item?.movie[0]._id}
                                 movie={item?.movie[0]}
+                                serverUrl={serverUrl}
+                                
                             /> }) 
                         }
                              

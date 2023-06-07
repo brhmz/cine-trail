@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import RatingStars from '../Rating/RatingStars';
 import "./moviecard.css"
 import { useNavigate } from 'react-router';
+import { UserContext } from '../../contexts/UserContext';
 
 function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
+
+  const { token } = useContext(UserContext)
 
   const imageStyle = {
     backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrl}")`,
@@ -34,10 +37,22 @@ function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
           />
         </div>
         <div className={`${cardStyle}-detail`}>
-          <p>{movie.title}</p>
-          <p className={`${cardStyle}-rating`}>
+          <p className={cardStyle === 'favorite-movie' ? 'no-display' : ''}>
+            {movie.title}
+          </p>
+          <p className={`${cardStyle}-rating-text`}>
             Rating: {Math.floor(movie.vote_average / 2)}
           </p>
+          {
+            token
+              ? <div className={cardStyle === 'favorite-movie'
+                ? 'remove-from-favorites'
+                : 'no-display'}
+                >
+                <p>&otimes; Remove</p>
+              </div>
+              : null
+          }
         </div>
       </div>
     </div>
