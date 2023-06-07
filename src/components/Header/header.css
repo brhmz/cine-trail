@@ -179,4 +179,8 @@
     .theme-buttons-container {
         display: none;
     }
+
+    .search-container {
+        display: none;
+    }
 }

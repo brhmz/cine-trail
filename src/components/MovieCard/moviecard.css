@@ -235,12 +235,15 @@
     align-items: center;
     background-color: var(--transparent-bg);
     z-index: 2;
-}
-
-:hover {
-    color: var(--white);
-}
+} 
 
 .no-display {
     display: none;
+}
+
+@media (max-width:400px) {
+    .favorite-movie {
+        width: 150px;
+        height: auto;
+    }
 }
