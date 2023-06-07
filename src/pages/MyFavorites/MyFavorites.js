@@ -5,6 +5,7 @@ import './myfavorites.css'
 import axios from 'axios';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import headerImg from '../../assests/cinema-stuff-red.jpg'
+import { Link } from 'react-router-dom'
 
 function MyFavorites({ serverUrl }) {
 
@@ -16,7 +17,7 @@ function MyFavorites({ serverUrl }) {
         axios.get(`${serverUrl}/favoriteMovies/user/${user?._id}`)
             .then(res => { setFavoriteMovies(res.data.favorites) })
             .catch(err => console.log(err))
-    }, [])
+    }, [user])
 
     return (
         <div className={darkMode === true
@@ -24,7 +25,7 @@ function MyFavorites({ serverUrl }) {
             : 'my-favorites-page-container'}>
             <img className={token ? 'logged-in-header' : 'logged-out-header'}
             src={headerImg}/>
-            <h3 className='my-favorites-title'>My Favorite Movies</h3>
+            <h2 className='my-favorites-title'>My Favorite Movies</h2>
             <div>
                 {
                     token
@@ -32,17 +33,17 @@ function MyFavorites({ serverUrl }) {
                         {
                            favoriteMovies?.map(item => {
                             return <MovieCard
-                                cardStyle={"popular-movie"}
+                                cardStyle={"favorite-movie"}
                                 width={"200px"}
                                 height={"300px"}
                                 imageUrl={item?.movie[0].poster_path}
                                 key={item?.movie[0]._id}
-                                data={item?.movie[0]}
+                                movie={item?.movie[0]}
                             /> }) 
                         }
                              
                         </div>  
-                        : <p>Please Sign In to add favorite movies.</p>
+                        : <p className='signin-no-text'>Please <Link className='signin-no' to='/signin'>Sign In</Link> to add favorite movies.</p>
                 }
             </div>
         </div>

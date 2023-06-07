@@ -22,7 +22,9 @@ function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
   let navigate = useNavigate()
 
   return (
-    <div onClick={() => navigate(`/moviedetails/${movie.id}`)}
+    <div onClick={movie?.id
+      ? () => navigate(`/moviedetails/${movie?.id}`)
+      : () => navigate(`/moviedetails/${movie?.tmdb_id}`)}
       className={cardStyle}
       style={imageStyle}>
       <div className={`${cardStyle}-info`}>
