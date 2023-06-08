@@ -65,7 +65,7 @@ function MovieDetailPage({ serverUrl }) {
     })
       .then(res => res.data === null ? setFavorite(false) : setFavorite(true))
       .catch(err => console.log(err))
-  }, [user, movie, serverUrl])
+  }, [user, movie, isFavorite])
 
   const addToFavorites = () => {
     if (!token) {
@@ -85,6 +85,7 @@ function MovieDetailPage({ serverUrl }) {
       .then(res => { setFavorite(false) })
       .cath(err => console.log(err))
   }
+
   return (
     <div className={darkMode === true
       ? 'movie-detail-page-container movie-detail-page-container-dark'

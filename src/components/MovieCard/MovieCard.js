@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
 
-  const { token } = useContext(UserContext)
+  const { token, user } = useContext(UserContext)
 
   const imageStyle = {
     backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrl}")`,
@@ -47,8 +47,7 @@ function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
             token
               ? <div className={cardStyle === 'favorite-movie'
                 ? 'remove-from-favorites'
-                : 'no-display'}
-                >
+                : 'no-display'}>
                 <p>&otimes; Remove</p>
               </div>
               : null

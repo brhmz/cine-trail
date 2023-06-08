@@ -218,7 +218,7 @@
     }
 }
 
-@media (max-width: 453px) {
+@media (max-width: 468px) {
     .create-account {
         display: unset;
         margin-left: 0;

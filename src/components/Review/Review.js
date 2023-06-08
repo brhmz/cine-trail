@@ -5,16 +5,16 @@ import './reviews.css'
 import avatar from '../../assests/squirtle.jpg'
 
 function Review({ review }) {
-  
+
   const { darkMode } = useContext(ThemeContext)
   const [imageError, setImageError] = useState(false)
 
   return (
     <div className={darkMode === true ? 'review review-dark' : 'review'}>
       <div className="author-container">
-        <img src={imageError ? avatar : `https://image.tmdb.org/t/p/original/${review?.author_details?.avatar_path}`} alt={review?.author.name}
-          className="author-avatar"
-          onError={() => setImageError(true)} />
+        <img onError={() => setImageError(true)}
+          src={imageError ? avatar : `https://image.tmdb.org/t/p/original/${review?.author_details?.avatar_path}`} alt={review?.author.name}
+          className="author-avatar" />
         <p className="author-name">{review?.author}</p>
       </div>
       <div className="review-content">

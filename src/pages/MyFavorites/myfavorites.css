@@ -17,6 +17,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    gap: 15px;
 }
 
 .logged-in-header {
