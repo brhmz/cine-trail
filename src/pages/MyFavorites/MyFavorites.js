@@ -36,8 +36,8 @@ function MyFavorites({ serverUrl }) {
                                 cardStyle={"favorite-movie"}
                                 width={"200px"}
                                 height={"300px"}
-                                imageUrl={item?.movie[0].poster_path}
-                                key={item?.movie[0]._id}
+                                imageUrl={item?.movie[0]?.poster_path}
+                                key={item?.movie[0]?._id}
                                 movie={item?.movie[0]}
                                 serverUrl={serverUrl}
                                 

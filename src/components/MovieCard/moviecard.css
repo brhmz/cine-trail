@@ -31,6 +31,15 @@
     padding-right: 15px;
 }
 
+@media (max-width:600px) {
+    .filtered-movie-cards-container {
+        width: 100%;
+        top: 102px;
+        left: 0;
+        right: 0;
+    }
+}
+
 /* ---- Popular Movies ---- */
 .popular-movie {
     width: 200px;
@@ -247,3 +256,4 @@
         height: auto;
     }
 }
+
