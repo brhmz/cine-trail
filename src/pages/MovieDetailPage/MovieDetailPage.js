@@ -65,7 +65,7 @@ function MovieDetailPage({ serverUrl }) {
     })
       .then(res => res.data === null ? setFavorite(false) : setFavorite(true))
       .catch(err => console.log(err))
-  }, [user, movie, isFavorite])
+  }, [user, movie, isFavorite, serverUrl])
 
   const addToFavorites = () => {
     if (!token) {

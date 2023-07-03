@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 function MovieCard({ movie, imageUrl, width, height, cardStyle, radius }) {
 
-  const { token, user } = useContext(UserContext)
+  const { token } = useContext(UserContext)
 
   const imageStyle = {
     backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrl}")`,
